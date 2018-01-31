@@ -8,15 +8,26 @@ Go to: <URL>, follow the instructions there.
 
 ## Changelog (and Planned Features)
 ### v1.0
-- [] Data aggregation
-- [] Web interface
+- [] Page structure setup
+- [] Demo data
+- [] SQLite database
+- [] Preferences
+- [] Results heatmap (Mapbox API)
 ### v2.0
-- [] User accounts
+- [] Real data
+- [] Migrate SQLite to PostgreSQL
+- [] Deploy to Heroku
 - [] Data export
-### v3.0
--[] Integration with MapBox/Google Maps/GIS software
+
+## Design
+Written in Go? NodeJS? Data aggregation with Python.
+Python generates a database with tables for each criteria.
+User selects criteria, then does a pairwise comparison. This comparison data is passed back to the server, where the weights are calculated, then utility is calculated for each criteria, using the database from before. This utility is turned into a GeoJSON dataset, where the circle radii equate to the overall utility. It also finds the top 5 locations with the highest utility. The GeoJSON data and the top 5 locations (and their utility) are passed back to the client. The client adds the GeoJSON data to the Mapbox image and puts the top 5 locations and utility into a sortable results table. The results table has a button for 'More results>', which sends a request for the next 5 highest scoring locations.
 
 ## Data Sources
+City populations: https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?src=bkmk
+City lat/lon populations and lat/lon: https://simplemaps.com/data/us-cities
+
 Climate
 - Pollen: pollen.com
 - Summer high: ncdc.noaa.gov
@@ -30,7 +41,8 @@ Economic
 Social
 - Walkability: walkscore.com
 - Parkland: parkscore.tpl.org
-- Schools: ???
+- School ratings: nces.ed.gov
+- Business quality: yelp.com
 
 ## License
 Copyright (c) 2017 nobleator

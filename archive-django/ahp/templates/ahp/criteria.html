@@ -1,0 +1,30 @@
+{% extends 'ahp/base.html' %}
+
+{% block head %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'ahp/criteria.css' %}" />
+{% endblock head %}
+
+{% block content %}
+<div id='content'>
+    <div>
+        Select the criteria that you would like to consider by clicking on the checkbox.
+    </div>
+    <div>
+        <form action='./weights/' method='post'>
+            {% csrf_token %}
+            {% for criterion, subcriteria in Criteria.items %}
+                {{ criterion }}
+                <div>
+                    {% for subcriterion in subcriteria %}
+                        <label for=''>{{ subcriterion }}</label>
+                        <input type='checkbox' name='selection' value='{{ subcriterion }}'>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+            <input class='next' type='submit' value='Next' />
+        </form>
+    </div>
+</div>
+{% endblock content %}
+
