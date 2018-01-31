@@ -63,7 +63,7 @@ function getChecked(elemID) {
         if (document.getElementById(option).checked) {
             comparisons.push(option);
             console.log(option);
-            if (option['children'].length > 0) {
+            if (options[option]['children'].length > 0) {
                 subLists[option] = [];
             };
         };
@@ -71,10 +71,12 @@ function getChecked(elemID) {
     console.log(comparisons);
     var output = '';
     for (var i = 0; i < comparisons.length; i++) {
-        if (comparisons[i]['selected'] && comparisons[i]['parent'] in subLists) {
-            subLists['parent'].push(comparisons[i]);
+        console.log(options[comparisons[i]]);
+        if (options[comparisons[i]]['selected'] && options[comparisons[i]]['parent'] in subLists) {
+            subLists[options[comparisons[i]]['parent']].push(comparisons[i]);
         };
     };
-    output += sublists;
+    console.log(subLists);
+    output += subLists;
     document.getElementById(elemID).innerHTML = output;
 };
