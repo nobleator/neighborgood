@@ -1,0 +1,19 @@
+<html>
+<head>
+    <title>Mapbox JS Testing</title>
+    <link rel='stylesheet' type='text/css' href='style.css'>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.40.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.40.0/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+    <% include navbar %>
+    <!-- Page Contents -->
+    <div id='content'>
+        <!-- for each in data? -->
+        <%= data %>
+        <div id='map'></div>
+        <div id='table'></div>
+    </div>
+</body>
+<script type='text/javascript' src='results.js'></script>
+</html>

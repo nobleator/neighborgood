@@ -1,0 +1,16 @@
+{% extends 'ahp/base.html' %}
+
+{% block head %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'ahp/welcome.css' %}" />
+{% endblock head %}
+
+{% block content %}
+<div id='content'>
+    <div>
+        Are you considering options for an upcoming move? You could spend hours trawling through websites, reviews, and shopping around, making sure that you get all the data you need for your big move. Or, you could let us do the busywork for you. All you have to do is tell us your preferences, and we'll even guide you through that too.
+        Here's how you do it:
+    </div>
+    <a class='next' href='/ahp/criteria.html'>Next</a>
+</div>
+{% endblock content %}
