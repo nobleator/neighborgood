@@ -57,26 +57,28 @@ function writeOptions(elemID) {
 };
 
 function getChecked(elemID) {
-    var comparisons = [];
-    var subLists = {null: []};
+    var comparisons = {null: []};
+    for (var option in options) {
+        if (options[option]['children'].length > 0) {
+            comparisons[option] = [];
+        };
+    };
     for (var option in options) {
         if (document.getElementById(option).checked) {
-            comparisons.push(option);
-            console.log(option);
-            if (options[option]['children'].length > 0) {
-                subLists[option] = [];
+            comparisons[options[option]['parent']].push(option);
+        };
+    };
+    output = '';
+    for (var parent in comparisons) {
+        var subList = comparisons[parent];
+        for (var i1 = 0; i1 < subList.length - 1; i1++) {
+            for (var i2 = i1 + 1; i2 < subList.length; i2++) {
+                output += '<span>' + subList[i1] + '</span>';
+                output += '<input type="range" min="-3" max="3" step="1">';
+                output += '<span>' + subList[i2] + '</span><br>';
+                console.log(subList[i1], subList[i2]);
             };
         };
     };
-    console.log(comparisons);
-    var output = '';
-    for (var i = 0; i < comparisons.length; i++) {
-        console.log(options[comparisons[i]]);
-        if (options[comparisons[i]]['selected'] && options[comparisons[i]]['parent'] in subLists) {
-            subLists[options[comparisons[i]]['parent']].push(comparisons[i]);
-        };
-    };
-    console.log(subLists);
-    output += subLists;
     document.getElementById(elemID).innerHTML = output;
 };
