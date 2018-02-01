@@ -74,11 +74,20 @@ function getChecked(elemID) {
         for (var i1 = 0; i1 < subList.length - 1; i1++) {
             for (var i2 = i1 + 1; i2 < subList.length; i2++) {
                 output += '<span>' + subList[i1] + '</span>';
-                output += '<input type="range" min="-3" max="3" step="1">';
+                output += '<input type="range" min="-3" max="3" step="1" id="'
+                output += subList[i1] + '-' + subList[i2] + '">';
                 output += '<span>' + subList[i2] + '</span><br>';
-                console.log(subList[i1], subList[i2]);
             };
         };
     };
     document.getElementById(elemID).innerHTML = output;
+};
+
+function getWeights() {
+    var inputs = document.getElementsByTagName('input');
+    for (var i = 0; i < inputs.length; i++) {
+        if (inputs[i].type.toLowerCase() == 'range') {
+            console.log(inputs[i].id, inputs[i].value);
+        };
+    };
 };
