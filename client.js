@@ -1,4 +1,4 @@
-// Read options from DB (via AJAX?)
+// Read and set options from server/DB (via AJAX?)
 var options = {
     'climate': {
         'selected': false,
@@ -88,6 +88,89 @@ function getWeights() {
     for (var i = 0; i < inputs.length; i++) {
         if (inputs[i].type.toLowerCase() == 'range') {
             console.log(inputs[i].id, inputs[i].value);
+        };
+    };
+};
+
+// Add step to filter by geographic region?
+// Send request to server with criteria selections and weights
+// On server side, process weights to determine utility for all options
+// Sort by highest utility (or utility/cost?) and return top 10 options
+var results = {'seattle': {'utility': 7,
+                           'cost': 200000},
+               'portland': {'utility': 6.6,
+                           'cost': 415000},
+               'denver': {'utility': 8.5,
+                           'cost': 400000},
+               'phoenix': {'utility': 5,
+                           'cost': 350000}};
+
+function writeResultsTable(elemID) {
+    var output = '';
+    for (var city in results) {
+        output += '<tr>';
+        output += '<td>' + city + '</td>';
+        output += '<td>' + results[city]['utility'] + '</td>';
+        output += '<td>' + results[city]['cost'] + '</td>';
+        output += '</tr>';
+    };        
+    document.getElementById(elemID).innerHTML = output;
+};
+
+// Inspiration:
+// https://codereview.stackexchange.com/questions/37632/sorting-an-html-table-with-javascript
+// TODO: Sorting is incomplete/not working
+
+var sortOrder = {'city': 1, 'utility': 1, 'cost': 1};
+function sortResults(column) {
+    console.log('in sortResults');
+    // Get ascending/descending value, reset other columns
+    var asc = sortOrder[column];
+    for (var city in sortOrder) {
+        if (column == city) {
+            sortOrder[city] *= -1;
+        } else {
+            sortOrder[city] = 1;
+        };
+    };
+    // Convert HTML to Array
+    var table = document.getElementById('resultsTable');
+    var rows = table.rows;
+    var tableData = new Array();
+    for (var r = 0; r < rows.length; r++) {
+        var cells = rows[r].cells;
+        tableData[r] = Array();
+        for (var c = 0; c < cells.length; c++) {
+            tableData[r][c] = cells[c].innerHTML;
+        };
+    };
+    console.log('pre sort');
+    console.log(tableData);
+    // Sort data in place
+    tableData.sort();
+    /*tableData.sort(function(a, b)  {
+        //return (a[column] == b[column]) ? 0 : ((a[column] > b[column]) ? asc : -1 * asc);
+        var retVal = 0;
+        var _a = parseFloat(a[column]);
+        var _b = parseFloat(b[column]);
+        if (a[column] != b[column]) {
+            if ((_a == a[column]) && (_b == b[column])) {
+                // Numerical column
+                retVal = (fA > fB) ? asc : -1 * asc;
+            } else {
+                // Text column
+                retVal = (a[column] > b[column]) ? asc : -1 * asc;
+            };
+        };
+        return retVal;
+    });*/
+    console.log('post sort');
+    console.log(tableData);
+    // Replace inner HTML of all individual cells (does not overwrite class/ID)
+    for (var r = 0; r < rows.length; r++) {
+        var cells = rows[r].cells;
+        for (var c = 0; c < cells.length; c++) {
+            table.rows[r].cells[c].innerHTML = tableData[r][c];
         };
     };
 };
