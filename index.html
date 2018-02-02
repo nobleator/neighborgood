@@ -20,9 +20,21 @@
     <div id='weights'>
         <span>weights go here</span>
     </div>
-    <button onclick='getWeights();'>Continue</button>
+    <button onclick='getWeights();writeResultsTable("resultsTable");'>Continue</button>
     <div id='results'>
         <span>results go here</span>
+        <table>
+            <thead>
+                <tr>
+                    <td onclick='sortResults("city");'>City</td>
+                    <td onclick='sortResults("utility");'>Utility</td>
+                    <td onclick='sortResults("cost");'>Cost</td>
+                </tr>
+            </thead>
+            <tbody id='resultsTable'>
+            
+            </tbody>
+        </table>
     </div>
 </body>
 
