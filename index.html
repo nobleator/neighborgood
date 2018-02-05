@@ -5,6 +5,7 @@
     <title>NeighborGood</title>
     <meta name=viewport content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="client.js"></script>
+    <script type="text/javascript" src="tablesort.js"></script>
 </head>
 
 <body onload="writeOptions('criteria-list');">
@@ -20,20 +21,18 @@
     <div id='weights'>
         <span>weights go here</span>
     </div>
-    <button onclick='getWeights();writeResultsTable("resultsTable");'>Continue</button>
+    <button onclick='getWeights();writeResultsTable("resultsTableBody");'>Finish</button>
     <div id='results'>
         <span>results go here</span>
-        <table>
+        <table id='resultsTable'>
             <thead>
                 <tr>
-                    <td onclick='sortResults("city");'>City</td>
-                    <td onclick='sortResults("utility");'>Utility</td>
-                    <td onclick='sortResults("cost");'>Cost</td>
+                    <th onclick="sortTable(0);">City</td>
+                    <th onclick="sortTable(1);">Utility</td>
+                    <th onclick="sortTable(2);">Cost</td>
                 </tr>
             </thead>
-            <tbody id='resultsTable'>
-            
-            </tbody>
+            <tbody id='resultsTableBody'></tbody>
         </table>
     </div>
 </body>
