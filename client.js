@@ -47,10 +47,19 @@ var options = {
     }
 }
 
+/*
+TODO: Remove inline onclick events from index.html and convert to event
+listeners.
+TODO: Clean up variable declarations (move to top of function)
+TODO: Move temporary data structures to getter functions (mimic server feed).
+TODO: Remove/modify document writing to ensure separation of concerns
+(data vs display)
+*/
+
 function writeOptions(elemID) {
     var output = '<ul>';
     for (var option in options) {
-        output += '<li><input type="checkbox" id="' + option + '">' + option + '</li>';
+        output += '<li><input type="checkbox" onchange="verifySelection(this);" id="' + option + '">' + option + '</li>';
     };
     output += '</ul>';
     document.getElementById(elemID).innerHTML = output;
@@ -81,6 +90,51 @@ function getChecked(elemID) {
         };
     };
     document.getElementById(elemID).innerHTML = output;
+};
+                                
+function verifySelection(elem) {
+    // If elem is checked, change parent (and grandparents) and all children 
+    // to checked.
+    // If elem is unchecked, uncheck all children. Also, check for siblings.
+    // If all siblings are unchecked, then uncheck the parent.
+    if (elem.checked) {
+        function setParentChecked(e) {
+            if (e != null) {
+                document.getElementById(e).checked = true;
+                setParentChecked(options[e]['parent']);
+            };
+        };
+        function setChildrenChecked(e) {
+            document.getElementById(e).checked = true;
+            for (var child in options[e]['children']) {
+                setChildrenChecked(options[e]['children'][child]);
+            };
+        };
+        setParentChecked(elem.id);
+        setChildrenChecked(elem.id);
+    } else {
+        function setChildrenUnchecked(e) {
+            document.getElementById(e).checked = false;
+            for (var child in options[e]['children']) {
+                setChildrenUnchecked(options[e]['children'][child]);
+            };
+        };
+        setChildrenUnchecked(elem.id);
+        if (options[elem.id]['parent'] != null) {
+            var anySibChecked = false;
+            var siblings = options[options[elem.id]['parent']]['children'];
+            console.log(elem.id);
+            for (var sibling in siblings) {
+                console.log(siblings[sibling]);
+                if (document.getElementById(siblings[sibling]).checked) {
+                    anySibChecked = true;
+                };
+            };
+            if (!anySibChecked) {
+                document.getElementById(options[elem.id]['parent']).checked = false;
+            };
+        };
+    };
 };
 
 function getWeights() {
@@ -172,4 +226,3 @@ function sortTable(n) {
     }
   }
 }
-
