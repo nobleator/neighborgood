@@ -58,8 +58,22 @@ TODO: Remove/modify document writing to ensure separation of concerns
 
 function writeOptions(elemID) {
     var output = '<ul>';
+    function write(elem) {
+        output += '<li><input type="checkbox" onchange="verifySelection(this);" id="' + elem + '">' + elem + '</li>';
+        if (options[elem]['children'].length > 0) {
+            output += '<ul>';
+            for (var child in options[elem]['children']) {
+                write(options[elem]['children'][child]);
+            };
+            output += '</ul>';
+        };
+        return output
+    };
+    
     for (var option in options) {
-        output += '<li><input type="checkbox" onchange="verifySelection(this);" id="' + option + '">' + option + '</li>';
+        if (options[option]['parent'] == null) {
+            write(option);
+        };
     };
     output += '</ul>';
     document.getElementById(elemID).innerHTML = output;
@@ -123,9 +137,7 @@ function verifySelection(elem) {
         if (options[elem.id]['parent'] != null) {
             var anySibChecked = false;
             var siblings = options[options[elem.id]['parent']]['children'];
-            console.log(elem.id);
             for (var sibling in siblings) {
-                console.log(siblings[sibling]);
                 if (document.getElementById(siblings[sibling]).checked) {
                     anySibChecked = true;
                 };
@@ -226,3 +238,4 @@ function sortTable(n) {
     }
   }
 }
+
