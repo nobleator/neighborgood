@@ -117,60 +117,59 @@ function writeResultsTable(elemID) {
     document.getElementById(elemID).innerHTML = output;
 };
 
-// Inspiration:
-// https://codereview.stackexchange.com/questions/37632/sorting-an-html-table-with-javascript
-// TODO: Sorting is incomplete/not working
+// Source: https://www.w3schools.com/howto/howto_js_sort_table.asp  
+function sortTable(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("resultsTable");
+  switching = true;
+  // Set the sorting direction to ascending:
+  dir = "asc"; 
+  /* Make a loop that will continue until
+  no switching has been done: */
+  while (switching) {
+    // Start by saying: no switching is done:
+    switching = false;
+    rows = table.getElementsByTagName("TR");
+    /* Loop through all table rows (except the
+    first, which contains table headers): */
+    for (i = 1; i < (rows.length - 1); i++) {
+      // Start by saying there should be no switching:
+      shouldSwitch = false;
+      /* Get the two elements you want to compare,
+      one from current row and one from the next: */
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      /* Check if the two rows should switch place,
+      based on the direction, asc or desc: */
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          // If so, mark as a switch and break the loop:
+          shouldSwitch= true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          // If so, mark as a switch and break the loop:
+          shouldSwitch= true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      /* If a switch has been marked, make the switch
+      and mark that a switch has been done: */
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      // Each time a switch is done, increase this count by 1:
+      switchcount ++; 
+    } else {
+      /* If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again. */
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
 
-var sortOrder = {'city': 1, 'utility': 1, 'cost': 1};
-function sortResults(column) {
-    console.log('in sortResults');
-    // Get ascending/descending value, reset other columns
-    var asc = sortOrder[column];
-    for (var city in sortOrder) {
-        if (column == city) {
-            sortOrder[city] *= -1;
-        } else {
-            sortOrder[city] = 1;
-        };
-    };
-    // Convert HTML to Array
-    var table = document.getElementById('resultsTable');
-    var rows = table.rows;
-    var tableData = new Array();
-    for (var r = 0; r < rows.length; r++) {
-        var cells = rows[r].cells;
-        tableData[r] = Array();
-        for (var c = 0; c < cells.length; c++) {
-            tableData[r][c] = cells[c].innerHTML;
-        };
-    };
-    console.log('pre sort');
-    console.log(tableData);
-    // Sort data in place
-    tableData.sort();
-    /*tableData.sort(function(a, b)  {
-        //return (a[column] == b[column]) ? 0 : ((a[column] > b[column]) ? asc : -1 * asc);
-        var retVal = 0;
-        var _a = parseFloat(a[column]);
-        var _b = parseFloat(b[column]);
-        if (a[column] != b[column]) {
-            if ((_a == a[column]) && (_b == b[column])) {
-                // Numerical column
-                retVal = (fA > fB) ? asc : -1 * asc;
-            } else {
-                // Text column
-                retVal = (a[column] > b[column]) ? asc : -1 * asc;
-            };
-        };
-        return retVal;
-    });*/
-    console.log('post sort');
-    console.log(tableData);
-    // Replace inner HTML of all individual cells (does not overwrite class/ID)
-    for (var r = 0; r < rows.length; r++) {
-        var cells = rows[r].cells;
-        for (var c = 0; c < cells.length; c++) {
-            table.rows[r].cells[c].innerHTML = tableData[r][c];
-        };
-    };
-};
