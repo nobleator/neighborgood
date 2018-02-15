@@ -239,3 +239,56 @@ function sortTable(n) {
   }
 }
 
+var sortOrder = {'city': 1, 'utility': 1, 'cost': 1};
+function sortResults(column) {
+    console.log('in sortResults');
+    // Get ascending/descending value, reset other columns
+    var asc = sortOrder[column];
+    for (var city in sortOrder) {
+        if (column == city) {
+            sortOrder[city] *= -1;
+        } else {
+            sortOrder[city] = 1;
+        };
+    };
+    // Convert HTML to Array
+    var table = document.getElementById('resultsTable');
+    var rows = table.rows;
+    var tableData = new Array();
+    for (var r = 0; r < rows.length; r++) {
+        var cells = rows[r].cells;
+        tableData[r] = Array();
+        for (var c = 0; c < cells.length; c++) {
+            tableData[r][c] = cells[c].innerHTML;
+        };
+    };
+    console.log('pre sort');
+    console.log(tableData);
+    // Sort data in place
+    //tableData.sort();
+    tableData.sort(function(a, b)  {
+        //return (a[column] == b[column]) ? 0 : ((a[column] > b[column]) ? asc : -1 * asc);
+        var retVal = 0;
+        var _a = parseFloat(a[column]);
+        var _b = parseFloat(b[column]);
+        if (a[column] != b[column]) {
+            if ((_a == a[column]) && (_b == b[column])) {
+                // Numerical column
+                retVal = (fA > fB) ? asc : -1 * asc;
+            } else {
+                // Text column
+                retVal = (a[column] > b[column]) ? asc : -1 * asc;
+            };
+        };
+        return retVal;
+    });
+    console.log('post sort');
+    console.log(tableData);
+    // Replace inner HTML of all individual cells (does not overwrite class/ID)
+    for (var r = 0; r < rows.length; r++) {
+        var cells = rows[r].cells;
+        for (var c = 0; c < cells.length; c++) {
+            table.rows[r].cells[c].innerHTML = tableData[r][c];
+        };
+    };
+};
