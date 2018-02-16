@@ -84,67 +84,78 @@ for row in rows:
             'area': area, 'pop_density': density, 'lat': lat, 'lon': lon}
     cities.append(data)
 
-# Restricted to 1 city for testing purposes
-for city_data in cities[:1]:
+# Restricted for testing purposes
+for city_data in cities[:5]:
     # Perform google search with wiki_url name + city-data.com
-    city_url = city_data['wiki_url'].split('/')[-1]
-    query = 'city-data.com' + ' ' + city_url
-    url = 'http://www.city-data.com/city/New-York-New-York.html'
-    req = Request(url, headers={'User-agent': 'Mozilla/5.0'})
-    page = urlopen(req).read()
-    soup = BeautifulSoup(page, 'html.parser')
-    housing_text = soup.find('section', {'id': 'median-income'}).getText()
-    housing_re = 'Estimated median house or condo value in \d{4}: \$\d*[.,]?\d*'
-    col_text = soup.find('section', {'id': 'cost-of-living-index'}).getText()
-    col_re = '\d*\.\d+|\d+'
-    housing = re.findall(housing_re, housing_text)[0].split(': ')[1]
-    col = re.findall(col_re, col_text)[1]
-    # TODO: Crime
-    # section id="crime" tfoot, last td element (for most recent year)
-    url = 'http://www.walkscore.com/score/' + city_url
-    req = Request(url, headers={'User-agent': 'Mozilla/5.0'})
-    page = urlopen(req).read()
-    soup = BeautifulSoup(page, 'html.parser')
-    imgs_str = ''.join([str(e) for e in soup.find_all('img')])
-    walk_src = re.findall('badge/walk/score/\d{1,3}\.svg', imgs_str)[0]
-    walk_score = re.split('/|\.', walk_src)[-2]
-    bike_src = re.findall('badge/bike/score/\d{1,3}\.svg', imgs_str)[0]
-    bike_score = re.split('/|\.', bike_src)[-2]
-    transit_src = re.findall('badge/transit/score/\d{1,3}\.svg', imgs_str)[0]
-    transit_score = re.split('/|\.', transit_src)[-2]
-    city_data['housing_cost'] = housing
-    city_data['col_index'] = col
-    city_data['walk_score'] = walk_score
-    city_data['bike_score'] = bike_score
-    city_data['transit_score'] = transit_score
-    url = city_data['wiki_url']
-    req = Request(url, headers={'User-agent': 'Mozilla/5.0'})
-    page = urlopen(req).read()
-    soup = BeautifulSoup(page, 'html.parser')
-    tables = soup.find_all('table', {'class': 'wikitable'})
-    climate_table = None
-    for table in tables:
-        if 'Climate' in table.find_all('tr')[0].find_all('th')[0].getText():
-            climate_table = table
-            break
-    # Feb should be 2nd <td>, Aug 8th, Annual 13th
-    if climate_table:
-        for row in climate_table.find_all('tr'):
-            if len(row.find_all('th')) == 0:
-                continue
-            row_title = row.find_all('th')[0].getText()
-            cells = row.find_all('td')
-            if 'Average high' in row_title:
-                high = cells[7].getText().split('\n')[0]
-            if 'Average low' in row_title:
-                low = cells[1].getText().split('\n')[0]
-            if 'Average precipitation' in row_title:
-                rain = cells[12].getText()
-        city_data['avg_feb_low'] = low
-        city_data['avg_aug_high'] = high
-        city_data['avg_year_precip'] = rain
-    climate_table = None
+    try:
+        city_url = city_data['wiki_url'].split('/')[-1]
+        query = 'city-data.com' + ' ' + city_url
+        url = 'http://www.city-data.com/city/New-York-New-York.html'
+        req = Request(url, headers={'User-agent': 'Mozilla/5.0'})
+        page = urlopen(req).read()
+        soup = BeautifulSoup(page, 'html.parser')
+        housing_text = soup.find('section', {'id': 'median-income'}).getText()
+        housing_re = 'Estimated median house or condo value in \d{4}: \$\d*[.,]?\d*'
+        col_text = soup.find('section', {'id': 'cost-of-living-index'}).getText()
+        col_re = '\d*\.\d+|\d+'
+        housing = re.findall(housing_re, housing_text)[0].split(': ')[1]
+        col = re.findall(col_re, col_text)[1]
+        city_data['housing_cost'] = housing
+        city_data['col_index'] = col
+    except Exception as e:
+        print('failed to open city-data.com for ' + city_data['city'])
+        print(e)
+    try:
+        url = 'http://www.walkscore.com/score/' + city_url
+        req = Request(url, headers={'User-agent': 'Mozilla/5.0'})
+        page = urlopen(req).read()
+        soup = BeautifulSoup(page, 'html.parser')
+        imgs_str = ''.join([str(e) for e in soup.find_all('img')])
+        walk_src = re.findall('badge/walk/score/\d{1,3}\.svg', imgs_str)[0]
+        walk_score = re.split('/|\.', walk_src)[-2]
+        bike_src = re.findall('badge/bike/score/\d{1,3}\.svg', imgs_str)[0]
+        bike_score = re.split('/|\.', bike_src)[-2]
+        transit_src = re.findall('badge/transit/score/\d{1,3}\.svg', imgs_str)[0]
+        transit_score = re.split('/|\.', transit_src)[-2]
+        city_data['walk_score'] = walk_score
+        city_data['bike_score'] = bike_score
+        city_data['transit_score'] = transit_score
+    except Exception as e:
+        print('failed to open walkscore.com for ' + city_data['city'])
+        print(e)
+    try:
+        url = city_data['wiki_url']
+        req = Request(url, headers={'User-agent': 'Mozilla/5.0'})
+        page = urlopen(req).read()
+        soup = BeautifulSoup(page, 'html.parser')
+        tables = soup.find_all('table', {'class': 'wikitable'})
+        climate_table = None
+        for table in tables:
+            if 'Climate' in table.find_all('tr')[0].find_all('th')[0].getText():
+                climate_table = table
+                break
+        # Feb should be 2nd <td>, Aug 8th, Annual 13th
+        if climate_table:
+            for row in climate_table.find_all('tr'):
+                if len(row.find_all('th')) == 0:
+                    continue
+                row_title = row.find_all('th')[0].getText()
+                cells = row.find_all('td')
+                if 'Average high' in row_title:
+                    high = cells[7].getText().split('\n')[0]
+                if 'Average low' in row_title:
+                    low = cells[1].getText().split('\n')[0]
+                if 'Average precipitation' in row_title:
+                    rain = cells[12].getText()
+            city_data['avg_feb_low'] = low
+            city_data['avg_aug_high'] = high
+            city_data['avg_year_precip'] = rain
+        climate_table = None
+    except Exception as e:
+        print('failed to open wikipedia.org for ' + city_data['city'])
+        print(e)
     time.sleep(10)
 
 df = pd.DataFrame(cities)
 print(df)
+# TODO: Export/save DataFrame (pd.to_sql?)
