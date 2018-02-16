@@ -87,7 +87,9 @@ for row in rows:
 
 # Restricted for testing purposes
 for city_data in cities[:5]:
-    # Perform google search with wiki_url name + city-data.com
+    city_data['timestamp'] = time.time()
+    # TODO: Find at least 1 mor metric for culture
+    # TODO: Google search with wiki_url name + city-data.com for housing data
     try:
         city_url = city_data['wiki_url'].split('/')[-1]
         query = 'city-data.com' + ' ' + city_url
