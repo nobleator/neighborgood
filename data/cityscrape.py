@@ -61,6 +61,7 @@ from bs4 import BeautifulSoup
 from urllib.request import Request, urlopen
 import time
 import re
+import pandas as pd
 
 
 url = 'https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population'
@@ -75,26 +76,31 @@ for row in rows:
         continue
     _, city, state, pop, _, _, area, _, density, _, latlon = cells
     city = city.rstrip('[0123456789]')
-    lat, lon = [e.lstrip() for e in re.split(';|/|\uefef', latlon)[-3:]]
+    lat, lon = [e.lstrip() for e in re.split(';|/|\uefeff', latlon)[-2:]]
+    lon = lon.split('\ufeff')[0]
     wiki_url = row.find_all('td')[1].find_all('a', href=True)[0]['href']
     wiki_url = 'https://wikipedia.org' + wiki_url
-    cities.append((city, state, wiki_url, pop, area, density, lat, lon))
+    data = {'city': city, 'state': state, 'wiki_url': wiki_url, 'pop': pop,
+            'area': area, 'pop_density': density, 'lat': lat, 'lon': lon}
+    cities.append(data)
 
 # Restricted to 1 city for testing purposes
 for city_data in cities[:1]:
     # Perform google search with wiki_url name + city-data.com
-    city_url = city_data[2].split('/')[-1]
+    city_url = city_data['wiki_url'].split('/')[-1]
     query = 'city-data.com' + ' ' + city_url
     url = 'http://www.city-data.com/city/New-York-New-York.html'
     req = Request(url, headers={'User-agent': 'Mozilla/5.0'})
     page = urlopen(req).read()
     soup = BeautifulSoup(page, 'html.parser')
-    realestate_text = soup.find('section', {'id': 'median-income'}).getText()
-    realestate_re = 'Estimated median house or condo value in \d{4}: \$\d*[.,]?\d'
+    housing_text = soup.find('section', {'id': 'median-income'}).getText()
+    housing_re = 'Estimated median house or condo value in \d{4}: \$\d*[.,]?\d*'
     col_text = soup.find('section', {'id': 'cost-of-living-index'}).getText()
-    col_re = '\d{4} cost of living index in .+: \$\d*[.]?\d'
-    print(re.findall(realestate_re, realestate_text)[0])
-    print(re.findall(col_re, col_text)[0])
+    col_re = '\d*\.\d+|\d+'
+    housing = re.findall(housing_re, housing_text)[0].split(': ')[1]
+    col = re.findall(col_re, col_text)[1]
+    # TODO: Crime
+    # section id="crime" tfoot, last td element (for most recent year)
     url = 'http://www.walkscore.com/score/' + city_url
     req = Request(url, headers={'User-agent': 'Mozilla/5.0'})
     page = urlopen(req).read()
@@ -102,8 +108,16 @@ for city_data in cities[:1]:
     imgs_str = ''.join([str(e) for e in soup.find_all('img')])
     walk_src = re.findall('badge/walk/score/\d{1,3}\.svg', imgs_str)[0]
     walk_score = re.split('/|\.', walk_src)[-2]
-    bike_src = re.findall('badge/bikescore/\d{1,3}\.svg', imgs_str)[0]
-    bike_score = re.split('/|\.', walk_src)[-2]
+    bike_src = re.findall('badge/bike/score/\d{1,3}\.svg', imgs_str)[0]
+    bike_score = re.split('/|\.', bike_src)[-2]
     transit_src = re.findall('badge/transit/score/\d{1,3}\.svg', imgs_str)[0]
-    transit_score = re.split('/|\.', walk_src)[-2]
-    time.sleep(60)
+    transit_score = re.split('/|\.', transit_src)[-2]
+    city_data['housing_cost'] = housing
+    city_data['col_index'] = col
+    city_data['walk_score'] = walk_score
+    city_data['bike_score'] = bike_score
+    city_data['transit_score'] = transit_score
+    time.sleep(10)
+
+df = pd.DataFrame(cities)
+print(df)
