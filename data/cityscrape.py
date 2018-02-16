@@ -62,6 +62,7 @@ from urllib.request import Request, urlopen
 import time
 import re
 import pandas as pd
+import numpy as np
 
 
 url = 'https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population'
@@ -130,10 +131,12 @@ for city_data in cities[:5]:
         soup = BeautifulSoup(page, 'html.parser')
         tables = soup.find_all('table', {'class': 'wikitable'})
         climate_table = None
+        race_table = None
         for table in tables:
             if 'Climate' in table.find_all('tr')[0].find_all('th')[0].getText():
                 climate_table = table
-                break
+            if 'Racial' in table.find_all('tr')[0].find_all('th')[0].getText():
+                race_table = table
         # Feb should be 2nd <td>, Aug 8th, Annual 13th
         if climate_table:
             for row in climate_table.find_all('tr'):
@@ -150,7 +153,17 @@ for city_data in cities[:5]:
             city_data['avg_feb_low'] = low
             city_data['avg_aug_high'] = high
             city_data['avg_year_precip'] = rain
+        # Get standard deviation of racial distribution
+        if race_table:
+            races = []
+            for row in race_table.find_all('tr'):
+                if len(row.find_all('td')) == 0:
+                    continue
+                cells = row.find_all('td')
+                races.append(float(cells[1].getText().rstrip('%')))
+            city_data['racial_stdev'] = np.std(races)
         climate_table = None
+        race_table = None
     except Exception as e:
         print('failed to open wikipedia.org for ' + city_data['city'])
         print(e)
