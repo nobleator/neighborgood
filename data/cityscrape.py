@@ -117,6 +117,33 @@ for city_data in cities[:1]:
     city_data['walk_score'] = walk_score
     city_data['bike_score'] = bike_score
     city_data['transit_score'] = transit_score
+    url = city_data['wiki_url']
+    req = Request(url, headers={'User-agent': 'Mozilla/5.0'})
+    page = urlopen(req).read()
+    soup = BeautifulSoup(page, 'html.parser')
+    tables = soup.find_all('table', {'class': 'wikitable'})
+    climate_table = None
+    for table in tables:
+        if 'Climate' in table.find_all('tr')[0].find_all('th')[0].getText():
+            climate_table = table
+            break
+    # Feb should be 2nd <td>, Aug 8th, Annual 13th
+    if climate_table:
+        for row in climate_table.find_all('tr'):
+            if len(row.find_all('th')) == 0:
+                continue
+            row_title = row.find_all('th')[0].getText()
+            cells = row.find_all('td')
+            if 'Average high' in row_title:
+                high = cells[7].getText().split('\n')[0]
+            if 'Average low' in row_title:
+                low = cells[1].getText().split('\n')[0]
+            if 'Average precipitation' in row_title:
+                rain = cells[12].getText()
+        city_data['avg_feb_low'] = low
+        city_data['avg_aug_high'] = high
+        city_data['avg_year_precip'] = rain
+    climate_table = None
     time.sleep(10)
 
 df = pd.DataFrame(cities)
