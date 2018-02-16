@@ -22,7 +22,7 @@ Criteria:
         Annual Avg Precipitation Days -> wikipedia.org
     Culture
         Wikipedia Article Length? -> wikipedia.org
-        Racial Diversity -> city-data.com
+        Racial Diversity -> wikipedia.org
     Transportation
         Walkability -> walkscore.com
         Bikability -> walkscore.com
