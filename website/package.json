@@ -1,7 +1,7 @@
 {
-  "name": "tool-decide",
-  "version": "0.1",
-  "description": "Browser tool to quantify decisions",
+  "name": "neighborgood",
+  "version": "1.0",
+  "description": "Browser-based tool to apply decision analysis to neighborhood selection",
   "engines": {
     "node": "6.9.5"
   },
@@ -10,10 +10,7 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "body-parser": "^1.18.2",
-    "express": "^4.14.1",
-    "socket.io": "^1.7.2",
-    "sqlite": "^2.8.0"
+    "express": "^4.16.2"
   },
   "repository": {
     "type": "git",
