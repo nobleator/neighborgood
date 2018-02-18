@@ -129,7 +129,7 @@ for city_data in cities[:]:
         city_data['transit_score'] = transit_score
     except Exception as e:
         log.append(time.strftime('%X %x %Z'))
-        log.append(('failed to open walkscore.com for ' + city_data['city'])
+        log.append('failed to open walkscore.com for ' + city_data['city'])
         log.append(e)
     try:
         url = city_data['wiki_url']
@@ -173,7 +173,7 @@ for city_data in cities[:]:
         race_table = None
     except Exception as e:
         log.append(time.strftime('%X %x %Z'))
-        log.append(('failed to open wikipedia.org for ' + city_data['city'])
+        log.append('failed to open wikipedia.org for ' + city_data['city'])
         log.append(e)
     time.sleep(10)
 
@@ -181,7 +181,7 @@ df = pd.DataFrame(cities)
 df.to_csv('database.csv')
 log.append(time.strftime('%X %x %Z'))
 log.append('Finished DataFrame:')
-log.append((df)
+log.append(df)
 conn = sqlite3.connect('database.db')
 df.to_sql('cities', conn, if_exists='append')
 conn.commit()
