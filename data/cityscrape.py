@@ -130,7 +130,7 @@ for city_data in cities[:]:
     except Exception as e:
         log.append(time.strftime('%X %x %Z'))
         log.append(('failed to open walkscore.com for ' + city_data['city'])
-        log.append((e)
+        log.append(e)
     try:
         url = city_data['wiki_url']
         req = Request(url, headers={'User-agent': 'Mozilla/5.0'})
@@ -174,7 +174,7 @@ for city_data in cities[:]:
     except Exception as e:
         log.append(time.strftime('%X %x %Z'))
         log.append(('failed to open wikipedia.org for ' + city_data['city'])
-        log.append((e)
+        log.append(e)
     time.sleep(10)
 
 df = pd.DataFrame(cities)
