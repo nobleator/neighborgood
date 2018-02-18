@@ -86,8 +86,9 @@ for row in rows:
     data = {'city': city, 'state': state, 'wiki_url': wiki_url, 'pop': pop,
             'area': area, 'pop_density': density, 'lat': lat, 'lon': lon}
     cities.append(data)
-log.append(time.strftime('%X %x %Z'))
-log.append('Gathered list of cities')
+msg = time.strftime('%X %x %Z') + 'Gathered list of cities'
+log.append(msg)
+print(msg)
 # Restricted for testing purposes
 for city_data in cities[:]:
     city_data['timestamp'] = time.time()
@@ -109,9 +110,9 @@ for city_data in cities[:]:
         city_data['housing_cost'] = housing
         city_data['col_index'] = col
     except Exception as e:
-        log.append(time.strftime('%X %x %Z'))
-        log.append('failed to open city-data.com for ' + city_data['city'])
-        log.append(e)
+        msg = time.strftime('%X %x %Z') + 'failed to open city-data.com for ' + city_data['city'] + e
+        log.append(msg)
+        print(msg)
     try:
         url = 'http://www.walkscore.com/score/' + city_url
         req = Request(url, headers={'User-agent': 'Mozilla/5.0'})
@@ -128,9 +129,9 @@ for city_data in cities[:]:
         city_data['bike_score'] = bike_score
         city_data['transit_score'] = transit_score
     except Exception as e:
-        log.append(time.strftime('%X %x %Z'))
-        log.append('failed to open walkscore.com for ' + city_data['city'])
-        log.append(e)
+        msg = time.strftime('%X %x %Z') + 'failed to open walkscore.com for ' + city_data['city'] + e
+        log.append(msg)
+        print(msg)
     try:
         url = city_data['wiki_url']
         req = Request(url, headers={'User-agent': 'Mozilla/5.0'})
@@ -172,9 +173,12 @@ for city_data in cities[:]:
         climate_table = None
         race_table = None
     except Exception as e:
-        log.append(time.strftime('%X %x %Z'))
-        log.append('failed to open wikipedia.org for ' + city_data['city'])
-        log.append(e)
+        msg = time.strftime('%X %x %Z') + 'failed to open wikipedia.org for ' + city_data['city'] + e
+        log.append(msg)
+        print(msg)
+    msg = 'done with ' + city_data['city']
+    log.append(msg)
+    print(msg)
     time.sleep(10)
 
 df = pd.DataFrame(cities)
