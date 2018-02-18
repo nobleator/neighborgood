@@ -63,8 +63,10 @@ import time
 import re
 import pandas as pd
 import numpy as np
+import sqlite3
 
 
+log = []
 url = 'https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population'
 req = Request(url, headers={'User-agent': 'Mozilla/5.0'})
 page = urlopen(req).read()
@@ -84,11 +86,12 @@ for row in rows:
     data = {'city': city, 'state': state, 'wiki_url': wiki_url, 'pop': pop,
             'area': area, 'pop_density': density, 'lat': lat, 'lon': lon}
     cities.append(data)
-
+log.append(time.strftime('%X %x %Z'))
+log.append('Gathered list of cities')
 # Restricted for testing purposes
-for city_data in cities[:5]:
+for city_data in cities[:]:
     city_data['timestamp'] = time.time()
-    # TODO: Find at least 1 mor metric for culture
+    # TODO: Find at least 1 more metric for culture
     # TODO: Google search with wiki_url name + city-data.com for housing data
     try:
         city_url = city_data['wiki_url'].split('/')[-1]
@@ -106,8 +109,9 @@ for city_data in cities[:5]:
         city_data['housing_cost'] = housing
         city_data['col_index'] = col
     except Exception as e:
-        print('failed to open city-data.com for ' + city_data['city'])
-        print(e)
+        log.append(time.strftime('%X %x %Z'))
+        log.append('failed to open city-data.com for ' + city_data['city'])
+        log.append(e)
     try:
         url = 'http://www.walkscore.com/score/' + city_url
         req = Request(url, headers={'User-agent': 'Mozilla/5.0'})
@@ -124,8 +128,9 @@ for city_data in cities[:5]:
         city_data['bike_score'] = bike_score
         city_data['transit_score'] = transit_score
     except Exception as e:
-        print('failed to open walkscore.com for ' + city_data['city'])
-        print(e)
+        log.append(time.strftime('%X %x %Z'))
+        log.append(('failed to open walkscore.com for ' + city_data['city'])
+        log.append((e)
     try:
         url = city_data['wiki_url']
         req = Request(url, headers={'User-agent': 'Mozilla/5.0'})
@@ -167,10 +172,21 @@ for city_data in cities[:5]:
         climate_table = None
         race_table = None
     except Exception as e:
-        print('failed to open wikipedia.org for ' + city_data['city'])
-        print(e)
+        log.append(time.strftime('%X %x %Z'))
+        log.append(('failed to open wikipedia.org for ' + city_data['city'])
+        log.append((e)
     time.sleep(10)
 
 df = pd.DataFrame(cities)
-print(df)
-# TODO: Export/save DataFrame (pd.to_sql?)
+df.to_csv('database.csv')
+log.append(time.strftime('%X %x %Z'))
+log.append('Finished DataFrame:')
+log.append((df)
+conn = sqlite3.connect('database.db')
+df.to_sql('cities', conn, if_exists='append')
+conn.commit()
+conn.close()
+log.append(time.strftime('%X %x %Z'))
+log.append('Wrote DataFrame to SQLite3 database')
+with open('logfile.txt', 'a') as fid:
+    fid.write(''.join(log))
