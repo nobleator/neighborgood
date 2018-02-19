@@ -14,7 +14,7 @@ Criteria:
         Population -> wikipedia.org
         Population Density -> wikipedia.org
     Cost
-        Housing Prices -> city-data.com
+        Housing Prices -> zillow.com
         Cost of Living Index -> city-data.com
     Climate
         Feb Avg Low -> wikipedia.org
@@ -93,6 +93,8 @@ print(msg)
 for city_data in cities:
     city_data['timestamp'] = time.time()
     # TODO: Find at least 1 more metric for culture
+    # TODO: Integrate Zillow
+    # TODO: Lookup data (walkability, weather) based on lat/lon instead of city name?
     # TODO: Google search with wiki_url name + city-data.com for housing data
     try:
         city_url = city_data['wiki_url'].split('/')[-1]

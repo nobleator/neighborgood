@@ -60,8 +60,8 @@ function getOptions(callback) {
     xhr = new XMLHttpRequest();
     // TODO: Replace with true endpoint
     xhr.open('GET', 'http://localhost:7777/query', true);
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
+    xhr.onload = function() {
+        if (xhr.status == 200) {
             options = JSON.parse(xhr.responseText);
             callback(options);
         };
@@ -168,27 +168,30 @@ function verifySelection(elem) {
 // TODO: Return calculated utility values and costs
 var results;
 function getWeights() {
+    var weights = {};
     var inputs = document.getElementsByTagName('input');
     for (var i = 0; i < inputs.length; i++) {
         if (inputs[i].type.toLowerCase() == 'range') {
-            console.log(inputs[i].id, inputs[i].value);
+            weights[inputs[i].id] = inputs[i].value;
         };
     };
+    xhr = new XMLHttpRequest();
+    // TODO: Replace with true endpoint
+    xhr.open('POST', 'http://localhost:7777/submit', true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhr.onload = function() {
+        if (xhr.status == 200) {
+            results = JSON.parse(xhr.responseText);
+            writeResultsTable("resultsTableBody");
+        };
+    };
+    xhr.send(JSON.stringify(weights));
 };
 
 // Add step to filter by geographic region?
 // Send request to server with criteria selections and weights
 // On server side, process weights to determine utility for all options
 // Sort by highest utility (or utility/cost?) and return top 10 options
-var results = {'seattle': {'utility': 7,
-                           'cost': 200000},
-               'portland': {'utility': 6.6,
-                           'cost': 415000},
-               'denver': {'utility': 8.5,
-                           'cost': 400000},
-               'phoenix': {'utility': 5,
-                           'cost': 350000}};
-
 function writeResultsTable(elemID) {
     var output = '';
     for (var city in results) {
