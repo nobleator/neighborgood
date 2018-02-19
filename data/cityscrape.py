@@ -90,7 +90,7 @@ msg = time.strftime('%X %x %Z') + ' gathered list of cities'
 log.append(msg)
 print(msg)
 # Restricted for testing purposes
-for city_data in cities[:]:
+for city_data in cities:
     city_data['timestamp'] = time.time()
     # TODO: Find at least 1 more metric for culture
     # TODO: Google search with wiki_url name + city-data.com for housing data
@@ -110,7 +110,7 @@ for city_data in cities[:]:
         city_data['housing_cost'] = housing
         city_data['col_index'] = col
     except Exception as e:
-        msg = time.strftime('%X %x %Z') + ' failed to open city-data.com for ' + city_data['city'] + e
+        msg = time.strftime('%X %x %Z') + ' failed to open city-data.com for ' + city_data['city'] + str(e)
         log.append(msg)
         print(msg)
     try:
@@ -129,7 +129,7 @@ for city_data in cities[:]:
         city_data['bike_score'] = bike_score
         city_data['transit_score'] = transit_score
     except Exception as e:
-        msg = time.strftime('%X %x %Z') + ' failed to open walkscore.com for ' + city_data['city'] + e
+        msg = time.strftime('%X %x %Z') + ' failed to open walkscore.com for ' + city_data['city'] + str(e)
         log.append(msg)
         print(msg)
     try:
@@ -173,7 +173,7 @@ for city_data in cities[:]:
         climate_table = None
         race_table = None
     except Exception as e:
-        msg = time.strftime('%X %x %Z') + ' failed to open wikipedia.org for ' + city_data['city'] + e
+        msg = time.strftime('%X %x %Z') + ' failed to open wikipedia.org for ' + city_data['city'] + str(e)
         log.append(msg)
         print(msg)
     msg = time.strftime('%X %x %Z') + ' done with ' + city_data['city']
