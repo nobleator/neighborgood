@@ -183,14 +183,11 @@ for city_data in cities:
 
 df = pd.DataFrame(cities)
 df.to_csv('database.csv')
-log.append(time.strftime('%X %x %Z'))
-log.append('Finished DataFrame:')
-log.append(df)
+log.append(time.strftime('%X %x %Z') + ' wrote DataFrame to database.csv')
 conn = sqlite3.connect('database.db')
 df.to_sql('cities', conn, if_exists='append')
 conn.commit()
 conn.close()
-log.append(time.strftime('%X %x %Z'))
-log.append('Wrote DataFrame to SQLite3 database')
+log.append(time.strftime('%X %x %Z') + ' wrote DataFrame to database.db')
 with open('logfile.txt', 'a') as fid:
-    fid.write(''.join(log))
+    fid.write('\n'.join(log))

@@ -70,7 +70,7 @@ function getOptions(callback) {
 };
 
 function writeOptions(elemID) {
-    getOptions(function(data) {
+    getOptions((data) => {
         var output = '<ul>';
         function write(elem) {
             output += '<li><input type="checkbox" onchange="verifySelection(this);" id="' + elem + '">' + elem + '</li>';
@@ -165,6 +165,8 @@ function verifySelection(elem) {
 };
 
 // TODO: Send weights back to server
+// TODO: Return calculated utility values and costs
+var results;
 function getWeights() {
     var inputs = document.getElementsByTagName('input');
     for (var i = 0; i < inputs.length; i++) {
