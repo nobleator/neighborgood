@@ -14,7 +14,6 @@ app.get('/', (req, res) => {
     res.sendFile('index.html')
 })
 
-// AJAX endpoint
 app.get('/query', (req, res) => {
     // Check database for criteria options (including geneology)
     var options = {
@@ -68,7 +67,6 @@ app.get('/query', (req, res) => {
     console.log('options sent')
 })
 
-// Results (POST) endpoint
 app.post('/submit', (req, res) => {
     // Save preference selections
     // Check database for selected criteria values

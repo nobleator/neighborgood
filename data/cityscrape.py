@@ -15,14 +15,12 @@ Criteria:
         Population Density -> wikipedia.org
     Cost
         Housing Prices -> zillow.com
-        Cost of Living Index -> city-data.com
+        Real Purchasing Power -> Tax Foundation?
     Climate
-        Feb Avg Low -> wikipedia.org
-        Aug Avg High -> wikipedia.org
-        Annual Avg Precipitation Days -> wikipedia.org
-    Culture
-        Wikipedia Article Length? -> wikipedia.org
-        Racial Diversity -> wikipedia.org
+        Feb Avg Low -> darksky.net  
+        Aug Avg High -> darksky.net
+        Annual Days of Precipitation -> darksky.net
+        Avg Humidity -> darksky.net
     Transportation
         Walkability -> walkscore.com
         Bikability -> walkscore.com
@@ -63,10 +61,143 @@ import time
 import re
 import pandas as pd
 import numpy as np
-import sqlite3
 
 
-log = []
+class Scraper:
+    def __init__(self):
+        self.log = []
+        self.cities = []
+        self.populate_cities_list()
+        for city in self.cities[:3]:
+            try:
+                city = self.get_city_data(city)
+            except Exception as e:
+                self.log_func('Failed to open city-data.com for ' + city['city'] + ' ' + str(e))
+            try:
+                city = self.get_walk_score(city)
+            except Exception as e:
+                self.log_func('Failed to open walkscore.com for ' + city['city'] + ' ' + str(e))
+            try:
+                city = self.get_climate_race(city)
+            except Exception as e:
+                self.log_func('Failed to open wikipedia.org for ' + city['city'] + ' ' + str(e))
+            self.log_func('Done with ' + city['city'])
+            time.sleep(10)
+        self.process()
+
+    def log_func(self, text: str=''):
+        msg = time.strftime('%X %x %Z') + ': ' + text
+        self.log.append(msg)
+        print(msg)
+
+    def url_to_soup(self, url: str=''):
+        req = Request(url, headers={'User-agent': 'Mozilla/5.0'})
+        page = urlopen(req).read()
+        soup = BeautifulSoup(page, 'html.parser')
+        return soup
+
+    def populate_cities_list(self):
+        url = 'https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population'
+        soup = self.url_to_soup(url)
+        rows = soup.find_all('table', {'class': 'wikitable'})[0].find_all('tr')
+        for row in rows:
+            cells = [e.text.replace(u'\xa0', '').lstrip() for e in row.find_all('td')]
+            if len(cells) == 0:
+                continue
+            _, city, state, pop, _, _, area, _, density, _, latlon = cells
+            city = city.rstrip('[0123456789]')
+            lat, lon = [e.lstrip() for e in re.split(';|/|\uefeff', latlon)[-2:]]
+            lon = lon.split('\ufeff')[0]
+            wiki_url = row.find_all('td')[1].find_all('a', href=True)[0]['href']
+            wiki_url = 'https://wikipedia.org' + wiki_url
+            data = {'city': city, 'state': state, 'wiki_url': wiki_url, 'pop': pop,
+                    'area': area, 'pop_density': density, 'lat': lat, 'lon': lon}
+            self.cities.append(data)
+        self.log_func('Gathered list of cities')
+
+    def get_city_data(self, city_data):
+        city_data['timestamp'] = time.strftime('%X %x %Z')
+        # city_url = city_data['wiki_url'].split('/')[-1]
+        # query = 'city-data.com' + ' ' + city_url
+        url = 'http://www.city-data.com/city/New-York-New-York.html'
+        soup = self.url_to_soup(url)
+        housing_text = soup.find('section', {'id': 'median-income'}).getText()
+        housing_re = r'Estimated median house or condo value in \d{4}: \$\d*[.,]?\d*'
+        col_text = soup.find('section', {'id': 'cost-of-living-index'}).getText()
+        col_re = r'\d*\.\d+|\d+'
+        housing = re.findall(housing_re, housing_text)[0].split(': ')[1]
+        col = re.findall(col_re, col_text)[1]
+        city_data['housing_cost'] = housing
+        city_data['col_index'] = col
+        return city_data
+                
+    def get_walk_score(self, city_data):
+        city_data['timestamp'] = time.strftime('%X %x %Z')
+        city_url = city_data['wiki_url'].split('/')[-1]
+        url = 'http://www.walkscore.com/score/' + city_url
+        soup = self.url_to_soup(url)
+        imgs_str = ''.join([str(e) for e in soup.find_all('img')])
+        walk_src = re.findall(r'badge/walk/score/\d{1,3}\.svg', imgs_str)[0]
+        walk_score = re.split(r'/|\.', walk_src)[-2]
+        bike_src = re.findall(r'badge/bike/score/\d{1,3}\.svg', imgs_str)[0]
+        bike_score = re.split(r'/|\.', bike_src)[-2]
+        transit_src = re.findall(r'badge/transit/score/\d{1,3}\.svg', imgs_str)[0]
+        transit_score = re.split(r'/|\.', transit_src)[-2]
+        city_data['walk_score'] = walk_score
+        city_data['bike_score'] = bike_score
+        city_data['transit_score'] = transit_score
+        return city_data
+            
+    def get_climate_race(self, city_data):
+        url = city_data['wiki_url']
+        soup = self.url_to_soup(url)
+        tables = soup.find_all('table', {'class': 'wikitable'})
+        climate_table = None
+        race_table = None
+        for table in tables:
+            if 'Climate' in table.find_all('tr')[0].find_all('th')[0].getText():
+                climate_table = table
+            if 'Racial' in table.find_all('tr')[0].find_all('th')[0].getText():
+                race_table = table
+        # Feb should be 2nd <td>, Aug 8th, Annual 13th
+        if climate_table:
+            for row in climate_table.find_all('tr'):
+                if len(row.find_all('th')) == 0:
+                    continue
+                row_title = row.find_all('th')[0].getText()
+                cells = row.find_all('td')
+                if 'Average high' in row_title:
+                    high = cells[7].getText().split('\n')[0]
+                if 'Average low' in row_title:
+                    low = cells[1].getText().split('\n')[0]
+                if 'Average precipitation' in row_title:
+                    rain = cells[12].getText()
+            city_data['avg_feb_low'] = low
+            city_data['avg_aug_high'] = high
+            city_data['avg_year_precip'] = rain
+        # Get standard deviation of racial distribution
+        if race_table:
+            races = []
+            for row in race_table.find_all('tr'):
+                if len(row.find_all('td')) == 0:
+                    continue
+                cells = row.find_all('td')
+                races.append(float(cells[1].getText().rstrip('%')))
+            city_data['racial_stdev'] = np.std(races)
+        return city_data
+    
+    def process(self):
+        df = pd.DataFrame(self.cities)
+        df.to_csv('database_test.csv')
+        self.log_func('Wrote DataFrame to database.csv')
+        with open('logfile.txt', 'a') as fid:
+            fid.write('\n'.join(self.log))
+
+
+if __name__ == '__main__':
+    scraper = Scraper()
+
+"""log = []
 url = 'https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population'
 req = Request(url, headers={'User-agent': 'Mozilla/5.0'})
 page = urlopen(req).read()
@@ -192,4 +323,4 @@ conn.commit()
 conn.close()
 log.append(time.strftime('%X %x %Z') + ' wrote DataFrame to database.db')
 with open('logfile.txt', 'a') as fid:
-    fid.write('\n'.join(log))
+    fid.write('\n'.join(log))"""

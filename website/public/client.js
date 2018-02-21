@@ -58,8 +58,7 @@ TODO: Remove/modify document writing to ensure separation of concerns
 var options;
 function getOptions(callback) {
     xhr = new XMLHttpRequest();
-    // TODO: Replace with true endpoint
-    xhr.open('GET', 'http://localhost:7777/query', true);
+    xhr.open('GET', 'query', true);
     xhr.onload = function() {
         if (xhr.status == 200) {
             options = JSON.parse(xhr.responseText);
@@ -176,8 +175,7 @@ function getWeights() {
         };
     };
     xhr = new XMLHttpRequest();
-    // TODO: Replace with true endpoint
-    xhr.open('POST', 'http://localhost:7777/submit', true);
+    xhr.open('POST', 'submit', true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.onload = function() {
         if (xhr.status == 200) {
