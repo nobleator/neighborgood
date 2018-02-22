@@ -551,4 +551,12 @@
 19:10:39 02/20/18 EST: Failed to open wikipedia.org for Los Angeles local variable 'rain' referenced before assignment
 19:10:39 02/20/18 EST: Done with Los Angeles
 19:10:59 02/20/18 EST: Done with Chicago
-19:11:09 02/20/18 EST: Wrote DataFrame to database.csv
+19:11:09 02/20/18 EST: Wrote DataFrame to database.csv18:40:44 02/21/18 EST: Gathered list of cities
+18:40:44 02/21/18 EST: Wrote DataFrame to database.csv19:43:31 02/21/18 EST: Gathered list of cities
+19:43:39 02/21/18 EST: Failed to access NOAA API for New York Need to implement get_climate()
+19:43:39 02/21/18 EST: Done with New York
+19:43:56 02/21/18 EST: Failed to access NOAA API for Los Angeles Need to implement get_climate()
+19:43:56 02/21/18 EST: Done with Los Angeles
+19:44:14 02/21/18 EST: Failed to access NOAA API for Chicago Need to implement get_climate()
+19:44:14 02/21/18 EST: Done with Chicago
+19:44:24 02/21/18 EST: Wrote DataFrame to database.csv

@@ -8,41 +8,71 @@ Go to: <URL>, follow the instructions there.
 
 ## Changelog (and Planned Features)
 ### v1.0
-- [] Page structure setup
-- [] Demo data
-- [] SQLite database
-- [] Preferences
-- [] Results heatmap (Mapbox API)
+- [] Initial data and proof of concept
 ### v2.0
-- [] Real data
-- [] Migrate SQLite to PostgreSQL
-- [] Deploy to Heroku
-- [] Data export
+- [] More criteria and data
+- [] Heatmap of results (Mapbox API)
 
 ## Design
-Written in Go? NodeJS? Data aggregation with Python.
-Python generates a database with tables for each criteria.
-User selects criteria, then does a pairwise comparison. This comparison data is passed back to the server, where the weights are calculated, then utility is calculated for each criteria, using the database from before. This utility is turned into a GeoJSON dataset, where the circle radii equate to the overall utility. It also finds the top 5 locations with the highest utility. The GeoJSON data and the top 5 locations (and their utility) are passed back to the client. The client adds the GeoJSON data to the Mapbox image and puts the top 5 locations and utility into a sortable results table. The results table has a button for 'More results>', which sends a request for the next 5 highest scoring locations.
+Server written in NodeJS. Data aggregation with Python.
+cityscraper.py aggregates data from a variety of sources (see Data Sources below) and generates a CSV file with columns for each of the criteria.
+
 
 ## Data Sources
-City populations: https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?src=bkmk
-City lat/lon populations and lat/lon: https://simplemaps.com/data/us-cities
+Wikipedia: https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population
+Bureau of Economic Analysis: https://www.bea.gov/regional/downloadzip.cfm
+Zillow: https://www.zillow.com/research/data/
+Walkscore: https://www.walkscore.com/cities-and-neighborhoods/
+National Oceanic and Atmospheric Adminstration: https://www.ncdc.noaa.gov/cdo-web/webservices/v2#data
 
-Climate
-- Pollen: pollen.com
-- Summer high: ncdc.noaa.gov
-- Winter low: ncdc.noaa.gov
-- Humidity: ncdc.noaa.gov
-Economic
-- Unemployment: bls.gov
-- Crime rate: ucrdatatool.gov
-- Consumer price index: bls.gov
-- Average income: irs.gov
-Social
-- Walkability: walkscore.com
-- Parkland: parkscore.tpl.org
-- School ratings: nces.ed.gov
-- Business quality: yelp.com
+v1.0
+Cities List -> wikipedia.org
+Criteria
+    Population
+        Population -> wikipedia.org
+        Population Density -> wikipedia.org
+    Cost
+        Housing Prices -> zillow.com
+        Regional Price Parity -> Bureau of Economic Analysis
+    Climate
+        Feb Avg Low -> darksky.net  
+        Aug Avg High -> darksky.net
+        Annual Days of Precipitation -> darksky.net
+        Avg Humidity -> darksky.net
+    Transportation
+        Walkability -> walkscore.com
+        Bikability -> walkscore.com
+        Public Transit -> walkscore.com
+
+v2.0
+Cities List -> wikipedia.org
+Geographic Filtering -> Click on map, sort by distanct from selected point
+Criteria:
+    Population
+        Population -> wikipedia.org
+        Population Density -> wikipedia.org
+    Cost
+        Housing Prices -> city-data.com
+        Cost of Living Index -> city-data.com
+        Taxes -> State-specific?
+    Climate
+        Feb Avg Low -> wikipedia.org
+        Aug Avg High -> wikipedia.org
+        Annual Avg Precipitation Days -> wikipedia.org
+    Culture
+        Distance to mountains or beaches -> ???
+        Wikipedia Article Length? -> wikipedia.org
+        Racial Diversity -> city-data.com
+    Transportation
+        Walkability -> walkscore.com
+        Bikability -> walkscore.com
+        Public Transit -> walkscore.com
+    Economic
+        Unemployment Rate -> city-data.com
+        Crime Rate -> city-data.com
+        Interconnectedness (e.g. number of airports)
+        Specific Career Selection -> Select from drop-down menu
+
 
 ## License
 Copyright (c) 2017 nobleator
