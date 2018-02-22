@@ -1,6 +1,6 @@
 {
   "name": "neighborgood",
-  "version": "1.0",
+  "version": "v1.0",
   "description": "Browser-based tool to apply decision analysis to neighborhood selection",
   "engines": {
     "node": "6.9.5"
