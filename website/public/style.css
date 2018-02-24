@@ -1,7 +1,7 @@
 body {
-  padding: 10% 0;
+  padding: 5% 0;
   background-color: #ecf0f1;
-  text-align: center;
+  /*text-align: center;*/
 }
 div {
     max-width: 40em;
@@ -12,5 +12,6 @@ table {
     margin: 0 auto;
 }
 ul {
+    margin: 0 auto;
     list-style-type: none;
 }
