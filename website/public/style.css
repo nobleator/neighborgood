@@ -1,0 +1,16 @@
+body {
+  padding: 10% 0;
+  background-color: #ecf0f1;
+  text-align: center;
+}
+div {
+    max-width: 40em;
+    margin: 0 auto;
+    padding: 2% 0;
+}
+table {
+    margin: 0 auto;
+}
+ul {
+    list-style-type: none;
+}

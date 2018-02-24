@@ -5,24 +5,27 @@
     <title>NeighborGood</title>
     <meta name=viewport content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="client.js"></script>
+    <link rel='stylesheet' href='style.css'>
 </head>
 
 <body onload="writeOptions('criteria-list');">
     <div id='intro'>
-        <span>placeholder</span>
+        <span>Welcome to NeighborGood. Want to move, but don't know where? Don't worry, all your indecision will come to an end as we apply analytical rigor to your neighborhood selection process.</span>
     </div>
     <div id='criteria'>
-        <ul id='criteria-list'>
-
-        </ul>
+        <span>Possible criteria. Please select the attributes you are interested in.</span>
+        <ul id='criteria-list'></ul>
+        <button onclick='getChecked("weights");'>Continue</button>
     </div>
-    <button onclick='getChecked("weights");'>Continue</button>
-    <div id='weights'>
-        <span>weights go here</span>
+    
+    <div>
+        <span>Drag the slider towards the criteria that you care more about (the more you prefer than criteria, the farther you drag it).</span>
+        <div id='weights'></div>
+        <button onclick='getWeights();'>Finish</button>
     </div>
-    <button onclick='getWeights();'>Finish</button>
+    
     <div id='results'>
-        <span>results go here</span>
+        <span>Based on your input above, here are your results. Click on the table header to sort.</span>
         <table id='resultsTable'>
             <thead>
                 <tr>
