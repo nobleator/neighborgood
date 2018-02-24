@@ -16,6 +16,7 @@ Go to: <URL>, follow the instructions there.
 ## Design
 Server written in NodeJS. Data aggregation with Python.
 cityscraper.py aggregates data from a variety of sources (see Data Sources below) and generates a CSV file with columns for each of the criteria.
+There is a second CSV file that contains the parent/child relationship mappings.
 
 
 ## Data Sources
@@ -28,7 +29,7 @@ National Oceanic and Atmospheric Adminstration: https://www.ncdc.noaa.gov/cdo-we
 v1.0
 Cities List -> wikipedia.org
 Criteria
-    Population
+    Demographics
         Population -> wikipedia.org
         Population Density -> wikipedia.org
     Cost
@@ -38,7 +39,7 @@ Criteria
         Longterm Avg Annual Low -> ncdc.noaa.gov 
         Longterm Avg Annual High -> ncdc.noaa.gov
         Longterm Avg Precipitation Total -> ncdc.noaa.gov
-    Transportation
+    Mobility
         Walkability -> walkscore.com
         Bikability -> walkscore.com
         Public Transit -> walkscore.com
@@ -47,7 +48,7 @@ v2.0
 Cities List -> wikipedia.org
 Geographic Filtering -> Click on map, sort by distanct from selected point
 Criteria:
-    Population
+    Demographics
         Population -> wikipedia.org
         Population Density -> wikipedia.org
     Cost
@@ -62,7 +63,7 @@ Criteria:
         Distance to mountains or beaches -> ???
         Wikipedia Article Length? -> wikipedia.org
         Racial Diversity -> city-data.com
-    Transportation
+    Mobility
         Walkability -> walkscore.com
         Bikability -> walkscore.com
         Public Transit -> walkscore.com
