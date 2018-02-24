@@ -35,10 +35,9 @@ Criteria
         Housing Prices -> zillow.com
         Regional Price Parity -> Bureau of Economic Analysis
     Climate
-        Feb Avg Low -> darksky.net  
-        Aug Avg High -> darksky.net
-        Annual Days of Precipitation -> darksky.net
-        Avg Humidity -> darksky.net
+        Longterm Avg Annual Low -> ncdc.noaa.gov 
+        Longterm Avg Annual High -> ncdc.noaa.gov
+        Longterm Avg Precipitation Total -> ncdc.noaa.gov
     Transportation
         Walkability -> walkscore.com
         Bikability -> walkscore.com

@@ -1,59 +1,8 @@
-// Read and set options from server/DB (via AJAX?)
-/*var options = {
-    'climate': {
-        'selected': false,
-        'parent': null,
-        'children': ['temperature', 'precipitation']
-    },
-    'temperature': {
-        'selected': false,
-        'parent': 'climate',
-        'children': ['hot', 'cold']
-    },
-    'hot': {
-        'selected': false,
-        'parent': 'temperature',
-        'children': []
-    },
-    'cold': {
-        'selected': false,
-        'parent': 'temperature',
-        'children': []
-    },
-    'precipitation': {
-        'selected': false,
-        'parent': 'climate',
-        'children': []
-    },
-    'culture': {
-        'selected': false,
-        'parent': null,
-        'children': ['outdoorsiness', 'arts']
-    },
-    'outdoorsiness': {
-        'selected': false,
-        'parent': 'culture',
-        'children': []
-    },
-    'arts': {
-        'selected': false,
-        'parent': 'culture',
-        'children': []
-    },
-    'jobs': {
-        'selected': false,
-        'parent': null,
-        'children': []
-    }
-}*/
-
 /*
 TODO: Remove inline onclick events from index.html and convert to event
 listeners.
-TODO: Clean up variable declarations (move to top of function)
-TODO: Move temporary data structures to getter functions (mimic server feed).
-TODO: Remove/modify document writing to ensure separation of concerns
-(data vs display)
+TODO: Clean up variable declarations (move to top of function).
+TODO: Change function names for easier minificaiton.
 */
 var options;
 function getOptions(callback) {
@@ -163,8 +112,6 @@ function verifySelection(elem) {
     };
 };
 
-// TODO: Send weights back to server
-// TODO: Return calculated utility values and costs
 var results;
 function getWeights() {
     var weights = {};

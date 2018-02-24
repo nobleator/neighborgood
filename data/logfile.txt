@@ -1,562 +1,309 @@
-06:39:37 02/19/18 EST gathered list of cities
-06:39:47 02/19/18 EST done with New York
-06:40:06 02/19/18 EST done with Los Angeles
-06:40:26 02/19/18 EST done with Chicago
-06:40:44 02/19/18 EST failed to open walkscore.com for Houston list index out of range
-06:40:45 02/19/18 EST failed to open wikipedia.org for Houston list index out of range
-06:40:45 02/19/18 EST done with Houston
-06:41:04 02/19/18 EST done with Phoenix
-06:41:24 02/19/18 EST failed to open wikipedia.org for Philadelphia list index out of range
-06:41:24 02/19/18 EST done with Philadelphia
-06:41:44 02/19/18 EST done with San Antonio
-06:42:04 02/19/18 EST done with San Diego
-06:42:23 02/19/18 EST failed to open walkscore.com for Dallas list index out of range
-06:42:24 02/19/18 EST failed to open wikipedia.org for Dallas list index out of range
-06:42:24 02/19/18 EST done with Dallas
-06:42:43 02/19/18 EST done with San Jose
-06:43:03 02/19/18 EST done with Austin
-06:43:22 02/19/18 EST done with Jacksonville
-06:43:41 02/19/18 EST done with San Francisco
-06:44:01 02/19/18 EST done with Columbus
-06:44:20 02/19/18 EST done with Indianapolis
-06:44:39 02/19/18 EST done with Fort Worth
-06:44:59 02/19/18 EST done with Charlotte
-06:45:19 02/19/18 EST done with Seattle
-06:45:37 02/19/18 EST failed to open walkscore.com for Denver list index out of range
-06:45:38 02/19/18 EST failed to open wikipedia.org for Denver list index out of range
-06:45:38 02/19/18 EST done with Denver
-06:45:59 02/19/18 EST failed to open walkscore.com for El Paso list index out of range
-06:45:59 02/19/18 EST done with El Paso
-06:46:20 02/19/18 EST done with Washington
-06:46:39 02/19/18 EST failed to open walkscore.com for Boston list index out of range
-06:46:40 02/19/18 EST done with Boston
-06:47:00 02/19/18 EST done with Detroit
-06:47:19 02/19/18 EST failed to open walkscore.com for Nashville list index out of range
-06:47:20 02/19/18 EST done with Nashville
-06:47:39 02/19/18 EST failed to open walkscore.com for Memphis list index out of range
-06:47:40 02/19/18 EST done with Memphis
-06:48:00 02/19/18 EST done with Portland
-06:48:19 02/19/18 EST done with Oklahoma City
-06:48:38 02/19/18 EST done with Las Vegas
-06:48:57 02/19/18 EST done with Louisville
-06:49:17 02/19/18 EST failed to open wikipedia.org for Baltimore list index out of range
-06:49:17 02/19/18 EST done with Baltimore
-06:49:35 02/19/18 EST failed to open walkscore.com for Milwaukee list index out of range
-06:49:36 02/19/18 EST failed to open wikipedia.org for Milwaukee list index out of range
-06:49:36 02/19/18 EST done with Milwaukee
-06:49:55 02/19/18 EST failed to open wikipedia.org for Albuquerque list index out of range
-06:49:55 02/19/18 EST done with Albuquerque
-06:50:14 02/19/18 EST done with Tucson
-06:50:34 02/19/18 EST done with Fresno
-06:50:55 02/19/18 EST done with Sacramento
-06:51:14 02/19/18 EST done with Mesa
-06:51:33 02/19/18 EST done with Kansas City
-06:51:53 02/19/18 EST done with Atlanta
-06:52:12 02/19/18 EST done with Long Beach
-06:52:31 02/19/18 EST done with Colorado Springs
-06:52:50 02/19/18 EST done with Raleigh
-06:53:11 02/19/18 EST failed to open walkscore.com for Miami list index out of range
-06:53:12 02/19/18 EST done with Miami
-06:53:31 02/19/18 EST done with Virginia Beach
-06:53:50 02/19/18 EST failed to open walkscore.com for Omaha list index out of range
-06:53:51 02/19/18 EST done with Omaha
-06:54:11 02/19/18 EST done with Oakland
-06:54:30 02/19/18 EST done with Minneapolis
-06:54:50 02/19/18 EST done with Tulsa
-06:55:09 02/19/18 EST failed to open walkscore.com for Arlington list index out of range
-06:55:09 02/19/18 EST done with Arlington
-06:55:29 02/19/18 EST done with New Orleans
-06:55:48 02/19/18 EST done with Wichita
-06:56:09 02/19/18 EST done with Cleveland
-06:56:28 02/19/18 EST failed to open wikipedia.org for Tampa list index out of range
-06:56:28 02/19/18 EST done with Tampa
-06:56:48 02/19/18 EST done with Bakersfield
-06:57:07 02/19/18 EST failed to open wikipedia.org for Aurora list index out of range
-06:57:07 02/19/18 EST done with Aurora
-06:57:27 02/19/18 EST done with Honolulu
-06:57:45 02/19/18 EST done with Anaheim
-06:58:05 02/19/18 EST done with Santa Ana
-06:58:23 02/19/18 EST failed to open walkscore.com for Corpus Christi list index out of range
-06:58:23 02/19/18 EST done with Corpus Christi
-06:58:42 02/19/18 EST failed to open walkscore.com for Riverside list index out of range
-06:58:43 02/19/18 EST done with Riverside
-06:59:01 02/19/18 EST failed to open walkscore.com for Lexington list index out of range
-06:59:02 02/19/18 EST done with Lexington
-06:59:21 02/19/18 EST failed to open walkscore.com for St. Louis list index out of range
-06:59:22 02/19/18 EST failed to open wikipedia.org for St. Louis could not convert string to float: '46.8% (est.)'
-06:59:22 02/19/18 EST done with St. Louis
-06:59:42 02/19/18 EST done with Stockton
-07:00:03 02/19/18 EST done with Pittsburgh
-07:00:21 02/19/18 EST failed to open walkscore.com for Saint Paul list index out of range
-07:00:22 02/19/18 EST done with Saint Paul
-07:00:42 02/19/18 EST done with Cincinnati
-07:01:02 02/19/18 EST failed to open walkscore.com for Anchorage list index out of range
-07:01:03 02/19/18 EST done with Anchorage
-07:01:24 02/19/18 EST done with Henderson
-07:01:44 02/19/18 EST failed to open walkscore.com for Greensboro list index out of range
-07:01:45 02/19/18 EST done with Greensboro
-07:02:06 02/19/18 EST done with Plano
-07:02:27 02/19/18 EST done with Newark
-07:02:47 02/19/18 EST done with Lincoln
-07:03:06 02/19/18 EST failed to open walkscore.com for Toledo list index out of range
-07:03:06 02/19/18 EST done with Toledo
-07:03:26 02/19/18 EST done with Orlando
-07:03:45 02/19/18 EST done with Chula Vista
-07:04:04 02/19/18 EST done with Irvine
-07:04:24 02/19/18 EST done with Fort Wayne
-07:04:43 02/19/18 EST failed to open wikipedia.org for Jersey City list index out of range
-07:04:43 02/19/18 EST done with Jersey City
-07:05:03 02/19/18 EST done with Durham
-07:05:22 02/19/18 EST failed to open walkscore.com for St. Petersburg list index out of range
-07:05:23 02/19/18 EST done with St. Petersburg
-07:05:42 02/19/18 EST failed to open walkscore.com for Laredo list index out of range
-07:05:43 02/19/18 EST failed to open wikipedia.org for Laredo list index out of range
-07:05:43 02/19/18 EST done with Laredo
-07:06:02 02/19/18 EST failed to open wikipedia.org for Buffalo list index out of range
-07:06:02 02/19/18 EST done with Buffalo
-07:06:21 02/19/18 EST done with Madison
-07:06:41 02/19/18 EST done with Lubbock
-07:07:00 02/19/18 EST failed to open walkscore.com for Chandler list index out of range
-07:07:00 02/19/18 EST done with Chandler
-07:07:20 02/19/18 EST failed to open walkscore.com for Scottsdale list index out of range
-07:07:20 02/19/18 EST done with Scottsdale
-07:07:39 02/19/18 EST done with Glendale
-07:07:58 02/19/18 EST done with Reno
-07:08:17 02/19/18 EST failed to open walkscore.com for Norfolk list index out of range
-07:08:18 02/19/18 EST done with Norfolk
-07:08:37 02/19/18 EST done with Winston–Salem
-07:08:59 02/19/18 EST done with North Las Vegas
-07:09:18 02/19/18 EST failed to open walkscore.com for Irving list index out of range
-07:09:18 02/19/18 EST done with Irving
-07:09:37 02/19/18 EST failed to open walkscore.com for Chesapeake list index out of range
-07:09:37 02/19/18 EST done with Chesapeake
-07:09:58 02/19/18 EST done with Gilbert
-07:10:16 02/19/18 EST failed to open walkscore.com for Hialeah list index out of range
-07:10:17 02/19/18 EST done with Hialeah
-07:10:37 02/19/18 EST done with Garland
-07:10:57 02/19/18 EST done with Fremont
-07:11:16 02/19/18 EST failed to open walkscore.com for Baton Rouge list index out of range
-07:11:16 02/19/18 EST done with Baton Rouge
-07:11:36 02/19/18 EST failed to open walkscore.com for Richmond list index out of range
-07:11:36 02/19/18 EST done with Richmond
-07:11:55 02/19/18 EST failed to open walkscore.com for Boise list index out of range
-07:11:56 02/19/18 EST done with Boise
-07:12:15 02/19/18 EST failed to open walkscore.com for San Bernardino list index out of range
-07:12:16 02/19/18 EST done with San Bernardino
-07:12:35 02/19/18 EST done with Spokane
-07:12:55 02/19/18 EST done with Des Moines
-07:13:14 02/19/18 EST done with Modesto
-07:13:34 02/19/18 EST done with Birmingham
-07:13:53 02/19/18 EST failed to open walkscore.com for Tacoma list index out of range
-07:13:53 02/19/18 EST done with Tacoma
-07:14:12 02/19/18 EST failed to open walkscore.com for Fontana list index out of range
-07:14:13 02/19/18 EST done with Fontana
-07:14:32 02/19/18 EST done with Rochester
-07:14:51 02/19/18 EST failed to open walkscore.com for Oxnard list index out of range
-07:14:52 02/19/18 EST done with Oxnard
-07:15:11 02/19/18 EST failed to open walkscore.com for Moreno Valley list index out of range
-07:15:12 02/19/18 EST done with Moreno Valley
-07:15:30 02/19/18 EST failed to open walkscore.com for Fayetteville list index out of range
-07:15:31 02/19/18 EST done with Fayetteville
-07:15:50 02/19/18 EST failed to open walkscore.com for Aurora list index out of range
-07:15:51 02/19/18 EST done with Aurora
-07:16:09 02/19/18 EST failed to open walkscore.com for Glendale list index out of range
-07:16:10 02/19/18 EST done with Glendale
-07:16:29 02/19/18 EST failed to open walkscore.com for Yonkers list index out of range
-07:16:30 02/19/18 EST done with Yonkers
-07:16:50 02/19/18 EST failed to open walkscore.com for Huntington Beach list index out of range
-07:16:50 02/19/18 EST done with Huntington Beach
-07:17:10 02/19/18 EST failed to open walkscore.com for Montgomery list index out of range
-07:17:11 02/19/18 EST done with Montgomery
-07:17:29 02/19/18 EST failed to open walkscore.com for Amarillo list index out of range
-07:17:29 02/19/18 EST failed to open wikipedia.org for Amarillo list index out of range
-07:17:29 02/19/18 EST done with Amarillo
-07:17:48 02/19/18 EST failed to open walkscore.com for Little Rock list index out of range
-07:17:48 02/19/18 EST done with Little Rock
-07:18:06 02/19/18 EST failed to open walkscore.com for Akron list index out of range
-07:18:07 02/19/18 EST done with Akron
-07:18:25 02/19/18 EST failed to open walkscore.com for Columbus list index out of range
-07:18:26 02/19/18 EST done with Columbus
-07:18:45 02/19/18 EST failed to open walkscore.com for Augusta list index out of range
-07:18:45 02/19/18 EST done with Augusta
-07:19:04 02/19/18 EST done with Grand Rapids
-07:19:23 02/19/18 EST failed to open walkscore.com for Shreveport list index out of range
-07:19:23 02/19/18 EST done with Shreveport
-07:19:44 02/19/18 EST done with Salt Lake City
-07:20:04 02/19/18 EST failed to open walkscore.com for Huntsville list index out of range
-07:20:05 02/19/18 EST done with Huntsville
-07:20:24 02/19/18 EST failed to open walkscore.com for Mobile list index out of range
-07:20:25 02/19/18 EST done with Mobile
-07:20:44 02/19/18 EST done with Tallahassee
-07:21:03 02/19/18 EST failed to open walkscore.com for Grand Prairie list index out of range
-07:21:04 02/19/18 EST done with Grand Prairie
-07:21:22 02/19/18 EST failed to open walkscore.com for Overland Park list index out of range
-07:21:23 02/19/18 EST done with Overland Park
-07:21:42 02/19/18 EST failed to open walkscore.com for Knoxville list index out of range
-07:21:43 02/19/18 EST done with Knoxville
-07:22:01 02/19/18 EST failed to open walkscore.com for Port St. Lucie list index out of range
-07:22:02 02/19/18 EST done with Port St. Lucie
-07:22:21 02/19/18 EST failed to open walkscore.com for Worcester list index out of range
-07:22:21 02/19/18 EST done with Worcester
-07:22:40 02/19/18 EST failed to open walkscore.com for Brownsville list index out of range
-07:22:40 02/19/18 EST done with Brownsville
-07:22:58 02/19/18 EST done with Tempe
-07:23:17 02/19/18 EST failed to open walkscore.com for Santa Clarita list index out of range
-07:23:17 02/19/18 EST done with Santa Clarita
-07:23:35 02/19/18 EST failed to open walkscore.com for Newport News list index out of range
-07:23:36 02/19/18 EST done with Newport News
-07:23:55 02/19/18 EST failed to open walkscore.com for Cape Coral list index out of range
-07:23:55 02/19/18 EST done with Cape Coral
-07:24:15 02/19/18 EST done with Providence
-07:24:35 02/19/18 EST done with Fort Lauderdale
-07:24:55 02/19/18 EST done with Chattanooga
-07:25:14 02/19/18 EST failed to open walkscore.com for Rancho Cucamonga list index out of range
-07:25:15 02/19/18 EST done with Rancho Cucamonga
-07:25:34 02/19/18 EST failed to open walkscore.com for Oceanside list index out of range
-07:25:34 02/19/18 EST done with Oceanside
-07:25:53 02/19/18 EST failed to open walkscore.com for Santa Rosa list index out of range
-07:25:54 02/19/18 EST done with Santa Rosa
-07:26:12 02/19/18 EST failed to open walkscore.com for Garden Grove list index out of range
-07:26:13 02/19/18 EST done with Garden Grove
-07:26:31 02/19/18 EST failed to open walkscore.com for Vancouver list index out of range
-07:26:32 02/19/18 EST done with Vancouver
-07:26:51 02/19/18 EST failed to open wikipedia.org for Sioux Falls list index out of range
-07:26:51 02/19/18 EST done with Sioux Falls
-07:27:10 02/19/18 EST failed to open walkscore.com for Ontario list index out of range
-07:27:10 02/19/18 EST done with Ontario
-07:27:29 02/19/18 EST failed to open walkscore.com for McKinney list index out of range
-07:27:29 02/19/18 EST done with McKinney
-07:27:49 02/19/18 EST failed to open walkscore.com for Elk Grove list index out of range
-07:27:49 02/19/18 EST done with Elk Grove
-07:28:08 02/19/18 EST failed to open walkscore.com for Jackson list index out of range
-07:28:09 02/19/18 EST done with Jackson
-07:28:31 02/19/18 EST failed to open walkscore.com for Pembroke Pines list index out of range
-07:28:32 02/19/18 EST done with Pembroke Pines
-07:28:56 02/19/18 EST done with Salem
-07:29:18 02/19/18 EST failed to open walkscore.com for Springfield list index out of range
-07:29:19 02/19/18 EST done with Springfield
-07:29:41 02/19/18 EST failed to open walkscore.com for Corona list index out of range
-07:29:41 02/19/18 EST done with Corona
-07:30:03 02/19/18 EST done with Eugene
-07:30:23 02/19/18 EST done with Fort Collins
-07:30:48 02/19/18 EST failed to open walkscore.com for Peoria list index out of range
-07:30:49 02/19/18 EST done with Peoria
-07:31:09 02/19/18 EST failed to open walkscore.com for Frisco list index out of range
-07:31:09 02/19/18 EST done with Frisco
-07:31:31 02/19/18 EST failed to open walkscore.com for Cary list index out of range
-07:31:31 02/19/18 EST done with Cary
-07:31:54 02/19/18 EST failed to open walkscore.com for Lancaster list index out of range
-07:31:55 02/19/18 EST done with Lancaster
-07:32:16 02/19/18 EST failed to open walkscore.com for Hayward list index out of range
-07:32:17 02/19/18 EST done with Hayward
-07:32:37 02/19/18 EST failed to open walkscore.com for Palmdale list index out of range
-07:32:38 02/19/18 EST done with Palmdale
-07:32:58 02/19/18 EST failed to open walkscore.com for Salinas list index out of range
-07:32:59 02/19/18 EST done with Salinas
-07:33:20 02/19/18 EST done with Alexandria
-07:33:40 02/19/18 EST failed to open walkscore.com for Lakewood list index out of range
-07:33:41 02/19/18 EST done with Lakewood
-07:34:02 02/19/18 EST failed to open walkscore.com for Springfield list index out of range
-07:34:03 02/19/18 EST failed to open wikipedia.org for Springfield could not convert string to float: '2.2%[57]'
-07:34:03 02/19/18 EST done with Springfield
-07:34:23 02/19/18 EST failed to open walkscore.com for Pasadena list index out of range
-07:34:24 02/19/18 EST done with Pasadena
-07:34:44 02/19/18 EST failed to open walkscore.com for Sunnyvale list index out of range
-07:34:44 02/19/18 EST done with Sunnyvale
-07:35:05 02/19/18 EST failed to open walkscore.com for Macon list index out of range
-07:35:06 02/19/18 EST done with Macon
-07:35:28 02/19/18 EST failed to open walkscore.com for Pomona list index out of range
-07:35:28 02/19/18 EST done with Pomona
-07:35:57 02/19/18 EST failed to open walkscore.com for Hollywood list index out of range
-07:35:57 02/19/18 EST done with Hollywood
-07:36:18 02/19/18 EST failed to open walkscore.com for Kansas City list index out of range
-07:36:19 02/19/18 EST done with Kansas City
-07:36:40 02/19/18 EST failed to open walkscore.com for Escondido list index out of range
-07:36:40 02/19/18 EST done with Escondido
-07:37:01 02/19/18 EST failed to open walkscore.com for Clarksville list index out of range
-07:37:02 02/19/18 EST done with Clarksville
-07:37:22 02/19/18 EST failed to open walkscore.com for Joliet list index out of range
-07:37:23 02/19/18 EST done with Joliet
-07:37:44 02/19/18 EST failed to open walkscore.com for Rockford list index out of range
-07:37:44 02/19/18 EST done with Rockford
-07:38:06 02/19/18 EST failed to open walkscore.com for Torrance list index out of range
-07:38:06 02/19/18 EST done with Torrance
-07:38:28 02/19/18 EST failed to open walkscore.com for Naperville list index out of range
-07:38:29 02/19/18 EST done with Naperville
-07:38:52 02/19/18 EST failed to open walkscore.com for Paterson list index out of range
-07:38:53 02/19/18 EST done with Paterson
-07:39:14 02/19/18 EST failed to open walkscore.com for Savannah list index out of range
-07:39:14 02/19/18 EST done with Savannah
-07:39:34 02/19/18 EST failed to open walkscore.com for Bridgeport list index out of range
-07:39:35 02/19/18 EST done with Bridgeport
-07:39:58 02/19/18 EST failed to open walkscore.com for Mesquite list index out of range
-07:39:59 02/19/18 EST done with Mesquite
-07:40:19 02/19/18 EST failed to open walkscore.com for Killeen list index out of range
-07:40:19 02/19/18 EST done with Killeen
-07:40:40 02/19/18 EST done with Syracuse
-07:41:01 02/19/18 EST failed to open walkscore.com for McAllen list index out of range
-07:41:02 02/19/18 EST done with McAllen
-07:41:23 02/19/18 EST failed to open walkscore.com for Pasadena list index out of range
-07:41:24 02/19/18 EST done with Pasadena
-07:41:44 02/19/18 EST done with Bellevue
-07:42:05 02/19/18 EST failed to open walkscore.com for Fullerton list index out of range
-07:42:06 02/19/18 EST done with Fullerton
-07:42:27 02/19/18 EST failed to open walkscore.com for Orange list index out of range
-07:42:28 02/19/18 EST done with Orange
-07:42:47 02/19/18 EST failed to open walkscore.com for Dayton list index out of range
-07:42:48 02/19/18 EST done with Dayton
-07:43:11 02/19/18 EST failed to open walkscore.com for Miramar list index out of range
-07:43:12 02/19/18 EST done with Miramar
-07:43:32 02/19/18 EST failed to open walkscore.com for Thornton list index out of range
-07:43:32 02/19/18 EST done with Thornton
-07:43:52 02/19/18 EST failed to open walkscore.com for West Valley City list index out of range
-07:43:53 02/19/18 EST done with West Valley City
-07:44:16 02/19/18 EST failed to open walkscore.com for Olathe list index out of range
-07:44:17 02/19/18 EST done with Olathe
-07:44:37 02/19/18 EST failed to open walkscore.com for Hampton list index out of range
-07:44:37 02/19/18 EST done with Hampton
-07:45:00 02/19/18 EST failed to open walkscore.com for Warren list index out of range
-07:45:00 02/19/18 EST done with Warren
-07:45:21 02/19/18 EST failed to open walkscore.com for Midland list index out of range
-07:45:21 02/19/18 EST done with Midland
-07:45:41 02/19/18 EST failed to open walkscore.com for Waco list index out of range
-07:45:41 02/19/18 EST done with Waco
-07:46:02 02/19/18 EST failed to open walkscore.com for Charleston list index out of range
-07:46:02 02/19/18 EST done with Charleston
-07:46:23 02/19/18 EST failed to open walkscore.com for Columbia list index out of range
-07:46:23 02/19/18 EST done with Columbia
-07:46:43 02/19/18 EST failed to open walkscore.com for Denton list index out of range
-07:46:44 02/19/18 EST done with Denton
-07:47:07 02/19/18 EST failed to open walkscore.com for Carrollton list index out of range
-07:47:07 02/19/18 EST done with Carrollton
-07:47:28 02/19/18 EST failed to open walkscore.com for Surprise list index out of range
-07:47:28 02/19/18 EST done with Surprise
-07:47:49 02/19/18 EST failed to open walkscore.com for Roseville list index out of range
-07:47:49 02/19/18 EST done with Roseville
-07:48:09 02/19/18 EST failed to open walkscore.com for Sterling Heights list index out of range
-07:48:10 02/19/18 EST done with Sterling Heights
-07:48:30 02/19/18 EST failed to open walkscore.com for Murfreesboro list index out of range
-07:48:31 02/19/18 EST done with Murfreesboro
-07:48:53 02/19/18 EST failed to open walkscore.com for Gainesville list index out of range
-07:48:53 02/19/18 EST done with Gainesville
-07:49:13 02/19/18 EST failed to open walkscore.com for Cedar Rapids list index out of range
-07:49:14 02/19/18 EST done with Cedar Rapids
-07:49:34 02/19/18 EST failed to open walkscore.com for Visalia list index out of range
-07:49:34 02/19/18 EST done with Visalia
-07:49:55 02/19/18 EST failed to open walkscore.com for Coral Springs list index out of range
-07:49:56 02/19/18 EST done with Coral Springs
-07:50:16 02/19/18 EST failed to open walkscore.com for New Haven list index out of range
-07:50:17 02/19/18 EST failed to open wikipedia.org for New Haven list index out of range
-07:50:17 02/19/18 EST done with New Haven
-07:50:37 02/19/18 EST failed to open walkscore.com for Stamford list index out of range
-07:50:37 02/19/18 EST done with Stamford
-07:50:59 02/19/18 EST failed to open walkscore.com for Thousand Oaks list index out of range
-07:51:00 02/19/18 EST done with Thousand Oaks
-07:51:20 02/19/18 EST failed to open walkscore.com for Concord list index out of range
-07:51:21 02/19/18 EST done with Concord
-07:51:42 02/19/18 EST failed to open walkscore.com for Elizabeth list index out of range
-07:51:42 02/19/18 EST done with Elizabeth
-07:52:02 02/19/18 EST failed to open walkscore.com for Lafayette list index out of range
-07:52:03 02/19/18 EST done with Lafayette
-07:52:25 02/19/18 EST failed to open walkscore.com for Kent list index out of range
-07:52:26 02/19/18 EST done with Kent
-07:52:46 02/19/18 EST failed to open walkscore.com for Topeka list index out of range
-07:52:47 02/19/18 EST done with Topeka
-07:53:06 02/19/18 EST failed to open walkscore.com for Simi Valley list index out of range
-07:53:07 02/19/18 EST failed to open wikipedia.org for Simi Valley list index out of range
-07:53:07 02/19/18 EST done with Simi Valley
-07:53:27 02/19/18 EST failed to open walkscore.com for Santa Clara list index out of range
-07:53:28 02/19/18 EST done with Santa Clara
-07:53:48 02/19/18 EST failed to open walkscore.com for Athens list index out of range
-07:53:48 02/19/18 EST done with Athens
-07:54:10 02/19/18 EST done with Hartford
-07:54:30 02/19/18 EST failed to open walkscore.com for Victorville list index out of range
-07:54:31 02/19/18 EST done with Victorville
-07:54:51 02/19/18 EST failed to open walkscore.com for Abilene list index out of range
-07:54:52 02/19/18 EST done with Abilene
-07:55:11 02/19/18 EST failed to open walkscore.com for Norman list index out of range
-07:55:12 02/19/18 EST done with Norman
-07:55:33 02/19/18 EST failed to open walkscore.com for Vallejo list index out of range
-07:55:33 02/19/18 EST done with Vallejo
-07:55:55 02/19/18 EST done with Berkeley
-07:56:15 02/19/18 EST failed to open walkscore.com for Round Rock list index out of range
-07:56:15 02/19/18 EST done with Round Rock
-07:56:36 02/19/18 EST done with Ann Arbor
-07:56:57 02/19/18 EST failed to open wikipedia.org for Fargo list index out of range
-07:56:57 02/19/18 EST done with Fargo
-07:57:18 02/19/18 EST failed to open walkscore.com for Columbia list index out of range
-07:57:18 02/19/18 EST done with Columbia
-07:57:39 02/19/18 EST failed to open walkscore.com for Allentown list index out of range
-07:57:39 02/19/18 EST done with Allentown
-07:58:02 02/19/18 EST failed to open walkscore.com for Evansville list index out of range
-07:58:02 02/19/18 EST done with Evansville
-07:58:23 02/19/18 EST failed to open walkscore.com for Beaumont list index out of range
-07:58:23 02/19/18 EST done with Beaumont
-07:58:43 02/19/18 EST failed to open walkscore.com for Odessa list index out of range
-07:58:44 02/19/18 EST done with Odessa
-07:59:05 02/19/18 EST failed to open walkscore.com for Wilmington list index out of range
-07:59:05 02/19/18 EST done with Wilmington
-07:59:28 02/19/18 EST failed to open walkscore.com for Arvada list index out of range
-07:59:28 02/19/18 EST done with Arvada
-07:59:48 02/19/18 EST failed to open walkscore.com for Independence list index out of range
-07:59:49 02/19/18 EST done with Independence
-08:00:10 02/19/18 EST failed to open walkscore.com for Provo list index out of range
-08:00:11 02/19/18 EST done with Provo
-08:00:32 02/19/18 EST done with Lansing
-08:00:52 02/19/18 EST failed to open walkscore.com for El Monte list index out of range
-08:00:53 02/19/18 EST done with El Monte
-08:01:13 02/19/18 EST failed to open walkscore.com for Springfield list index out of range
-08:01:13 02/19/18 EST done with Springfield
-08:01:34 02/19/18 EST failed to open walkscore.com for Fairfield list index out of range
-08:01:34 02/19/18 EST done with Fairfield
-08:01:55 02/19/18 EST failed to open walkscore.com for Clearwater list index out of range
-08:01:55 02/19/18 EST done with Clearwater
-08:02:15 02/19/18 EST failed to open walkscore.com for Peoria list index out of range
-08:02:16 02/19/18 EST done with Peoria
-08:02:37 02/19/18 EST failed to open walkscore.com for Rochester list index out of range
-08:02:37 02/19/18 EST done with Rochester
-08:02:58 02/19/18 EST failed to open walkscore.com for Carlsbad list index out of range
-08:02:59 02/19/18 EST done with Carlsbad
-08:03:19 02/19/18 EST failed to open walkscore.com for Westminster list index out of range
-08:03:20 02/19/18 EST done with Westminster
-08:03:40 02/19/18 EST failed to open walkscore.com for West Jordan list index out of range
-08:03:40 02/19/18 EST done with West Jordan
-08:04:01 02/19/18 EST failed to open walkscore.com for Pearland list index out of range
-08:04:02 02/19/18 EST done with Pearland
-08:04:22 02/19/18 EST failed to open walkscore.com for Richardson list index out of range
-08:04:23 02/19/18 EST done with Richardson
-08:04:44 02/19/18 EST failed to open walkscore.com for Downey list index out of range
-08:04:45 02/19/18 EST done with Downey
-08:05:07 02/19/18 EST failed to open walkscore.com for Miami Gardens list index out of range
-08:05:07 02/19/18 EST done with Miami Gardens
-08:05:27 02/19/18 EST failed to open walkscore.com for Temecula list index out of range
-08:05:27 02/19/18 EST done with Temecula
-08:05:47 02/19/18 EST failed to open walkscore.com for Costa Mesa list index out of range
-08:05:48 02/19/18 EST done with Costa Mesa
-08:06:08 02/19/18 EST failed to open walkscore.com for College Station list index out of range
-08:06:08 02/19/18 EST done with College Station
-08:06:28 02/19/18 EST failed to open walkscore.com for Elgin list index out of range
-08:06:29 02/19/18 EST done with Elgin
-08:06:49 02/19/18 EST failed to open walkscore.com for Murrieta list index out of range
-08:06:49 02/19/18 EST done with Murrieta
-08:07:10 02/19/18 EST failed to open walkscore.com for Gresham list index out of range
-08:07:10 02/19/18 EST done with Gresham
-08:07:30 02/19/18 EST failed to open walkscore.com for High Point list index out of range
-08:07:30 02/19/18 EST done with High Point
-08:07:51 02/19/18 EST failed to open walkscore.com for Antioch list index out of range
-08:07:52 02/19/18 EST failed to open wikipedia.org for Antioch list index out of range
-08:07:52 02/19/18 EST done with Antioch
-08:08:13 02/19/18 EST failed to open walkscore.com for Inglewood list index out of range
-08:08:14 02/19/18 EST done with Inglewood
-08:08:35 02/19/18 EST done with Cambridge
-08:08:55 02/19/18 EST failed to open walkscore.com for Lowell list index out of range
-08:08:55 02/19/18 EST done with Lowell
-08:09:17 02/19/18 EST failed to open walkscore.com for Manchester list index out of range
-08:09:17 02/19/18 EST done with Manchester
-08:09:37 02/19/18 EST failed to open walkscore.com for Billings list index out of range
-08:09:38 02/19/18 EST done with Billings
-08:09:58 02/19/18 EST failed to open walkscore.com for Pueblo list index out of range
-08:09:58 02/19/18 EST done with Pueblo
-08:10:18 02/19/18 EST failed to open walkscore.com for Palm Bay list index out of range
-08:10:19 02/19/18 EST done with Palm Bay
-08:10:39 02/19/18 EST failed to open walkscore.com for Centennial list index out of range
-08:10:39 02/19/18 EST done with Centennial
-08:11:03 02/19/18 EST failed to open walkscore.com for Richmond list index out of range
-08:11:04 02/19/18 EST failed to open wikipedia.org for Richmond list index out of range
-08:11:04 02/19/18 EST done with Richmond
-08:11:24 02/19/18 EST failed to open walkscore.com for Ventura list index out of range
-08:11:25 02/19/18 EST done with Ventura
-08:11:47 02/19/18 EST failed to open walkscore.com for Pompano Beach list index out of range
-08:11:47 02/19/18 EST done with Pompano Beach
-08:12:08 02/19/18 EST failed to open walkscore.com for North Charleston list index out of range
-08:12:09 02/19/18 EST done with North Charleston
-08:12:29 02/19/18 EST failed to open walkscore.com for Everett list index out of range
-08:12:29 02/19/18 EST done with Everett
-08:12:49 02/19/18 EST failed to open walkscore.com for Waterbury list index out of range
-08:12:50 02/19/18 EST failed to open wikipedia.org for Waterbury list index out of range
-08:12:50 02/19/18 EST done with Waterbury
-08:13:09 02/19/18 EST failed to open walkscore.com for West Palm Beach list index out of range
-08:13:10 02/19/18 EST done with West Palm Beach
-08:13:31 02/19/18 EST done with Boulder
-08:13:51 02/19/18 EST failed to open walkscore.com for West Covina list index out of range
-08:13:52 02/19/18 EST done with West Covina
-08:14:12 02/19/18 EST failed to open walkscore.com for Broken Arrow list index out of range
-08:14:12 02/19/18 EST done with Broken Arrow
-08:14:32 02/19/18 EST failed to open walkscore.com for Clovis list index out of range
-08:14:32 02/19/18 EST done with Clovis
-08:14:52 02/19/18 EST failed to open walkscore.com for Daly City list index out of range
-08:14:54 02/19/18 EST done with Daly City
-08:15:14 02/19/18 EST failed to open walkscore.com for Lakeland list index out of range
-08:15:14 02/19/18 EST done with Lakeland
-08:15:35 02/19/18 EST failed to open walkscore.com for Santa Maria list index out of range
-08:15:35 02/19/18 EST done with Santa Maria
-08:15:55 02/19/18 EST failed to open walkscore.com for Norwalk list index out of range
-08:15:56 02/19/18 EST done with Norwalk
-08:16:16 02/19/18 EST failed to open walkscore.com for Sandy Springs list index out of range
-08:16:17 02/19/18 EST done with Sandy Springs
-08:16:37 02/19/18 EST failed to open walkscore.com for Hillsboro list index out of range
-08:16:38 02/19/18 EST done with Hillsboro
-08:16:58 02/19/18 EST done with Green Bay
-08:17:19 02/19/18 EST failed to open walkscore.com for Tyler list index out of range
-08:17:19 02/19/18 EST done with Tyler
-08:17:40 02/19/18 EST failed to open walkscore.com for Wichita Falls list index out of range
-08:17:40 02/19/18 EST done with Wichita Falls
-08:18:00 02/19/18 EST failed to open walkscore.com for Lewisville list index out of range
-08:18:01 02/19/18 EST done with Lewisville
-08:18:22 02/19/18 EST failed to open walkscore.com for Burbank list index out of range
-08:18:23 02/19/18 EST done with Burbank
-08:18:42 02/19/18 EST failed to open walkscore.com for Greeley list index out of range
-08:18:42 02/19/18 EST done with Greeley
-08:19:04 02/19/18 EST failed to open walkscore.com for San Mateo list index out of range
-08:19:04 02/19/18 EST done with San Mateo
-08:19:24 02/19/18 EST failed to open walkscore.com for El Cajon list index out of range
-08:19:24 02/19/18 EST done with El Cajon
-08:19:45 02/19/18 EST failed to open walkscore.com for Jurupa Valley list index out of range
-08:19:45 02/19/18 EST done with Jurupa Valley
-08:20:07 02/19/18 EST failed to open walkscore.com for Rialto list index out of range
-08:20:08 02/19/18 EST done with Rialto
-08:20:28 02/19/18 EST failed to open walkscore.com for Davenport list index out of range
-08:20:28 02/19/18 EST done with Davenport
-08:20:48 02/19/18 EST failed to open walkscore.com for League City list index out of range
-08:20:49 02/19/18 EST done with League City
-08:21:09 02/19/18 EST failed to open walkscore.com for Edison list index out of range
-08:21:10 02/19/18 EST done with Edison
-08:21:31 02/19/18 EST failed to open walkscore.com for Davie list index out of range
-08:21:32 02/19/18 EST done with Davie
-08:21:53 02/19/18 EST failed to open walkscore.com for Las Cruces list index out of range
-08:21:53 02/19/18 EST done with Las Cruces
-08:22:13 02/19/18 EST failed to open walkscore.com for South Bend list index out of range
-08:22:14 02/19/18 EST done with South Bend
-08:22:35 02/19/18 EST failed to open walkscore.com for Vista list index out of range
-08:22:36 02/19/18 EST done with Vista
-08:22:56 02/19/18 EST failed to open walkscore.com for Woodbridge list index out of range
-08:22:57 02/19/18 EST done with Woodbridge
-08:23:17 02/19/18 EST failed to open walkscore.com for Renton list index out of range
-08:23:18 02/19/18 EST done with Renton
-08:23:38 02/19/18 EST failed to open walkscore.com for Lakewood list index out of range
-08:23:38 02/19/18 EST done with Lakewood
-08:23:59 02/19/18 EST failed to open walkscore.com for San Angelo list index out of range
-08:23:59 02/19/18 EST done with San Angelo
-08:24:19 02/19/18 EST failed to open walkscore.com for Clinton list index out of range
-08:24:20 02/19/18 EST done with Clinton19:07:27 02/20/18 EST: Gathered list of cities
-19:07:34 02/20/18 EST: Failed to open walkscore.com for New York name 'city_url' is not defined
-19:07:36 02/20/18 EST: Done with New York
-19:07:53 02/20/18 EST: Failed to open walkscore.com for Los Angeles name 'city_url' is not defined
-19:07:54 02/20/18 EST: Failed to open wikipedia.org for Los Angeles local variable 'rain' referenced before assignment
-19:07:54 02/20/18 EST: Done with Los Angeles
-19:08:12 02/20/18 EST: Failed to open walkscore.com for Chicago name 'city_url' is not defined
-19:08:13 02/20/18 EST: Done with Chicago
-19:08:23 02/20/18 EST: Wrote DataFrame to database.csv19:10:10 02/20/18 EST: Gathered list of cities
-19:10:20 02/20/18 EST: Done with New York
-19:10:39 02/20/18 EST: Failed to open wikipedia.org for Los Angeles local variable 'rain' referenced before assignment
-19:10:39 02/20/18 EST: Done with Los Angeles
-19:10:59 02/20/18 EST: Done with Chicago
-19:11:09 02/20/18 EST: Wrote DataFrame to database.csv18:40:44 02/21/18 EST: Gathered list of cities
-18:40:44 02/21/18 EST: Wrote DataFrame to database.csv19:43:31 02/21/18 EST: Gathered list of cities
-19:43:39 02/21/18 EST: Failed to access NOAA API for New York Need to implement get_climate()
-19:43:39 02/21/18 EST: Done with New York
-19:43:56 02/21/18 EST: Failed to access NOAA API for Los Angeles Need to implement get_climate()
-19:43:56 02/21/18 EST: Done with Los Angeles
-19:44:14 02/21/18 EST: Failed to access NOAA API for Chicago Need to implement get_climate()
-19:44:14 02/21/18 EST: Done with Chicago
-19:44:24 02/21/18 EST: Wrote DataFrame to database.csv
+17:30:00 02/23/18 EST: Gathered list of cities
+17:30:23 02/23/18 EST: Done with New York
+17:30:47 02/23/18 EST: Done with Los Angeles
+17:31:08 02/23/18 EST: Done with Chicago
+17:31:28 02/23/18 EST: Done with Houston
+17:31:47 02/23/18 EST: Done with Phoenix
+17:32:12 02/23/18 EST: Done with Philadelphia
+17:32:30 02/23/18 EST: Done with San Antonio
+17:32:50 02/23/18 EST: Done with San Diego
+17:33:05 02/23/18 EST: Done with Dallas
+17:33:27 02/23/18 EST: Done with San Jose
+17:33:41 02/23/18 EST: Done with Austin
+17:33:56 02/23/18 EST: Done with Jacksonville
+17:34:20 02/23/18 EST: Done with San Francisco
+17:34:35 02/23/18 EST: Done with Columbus
+17:34:54 02/23/18 EST: Done with Indianapolis
+17:35:16 02/23/18 EST: Done with Fort Worth
+17:35:33 02/23/18 EST: Done with Charlotte
+17:35:54 02/23/18 EST: Done with Seattle
+17:36:17 02/23/18 EST: Done with Denver
+17:36:33 02/23/18 EST: Done with El Paso
+17:36:47 02/23/18 EST: Done with Washington
+17:37:11 02/23/18 EST: Done with Boston
+17:37:29 02/23/18 EST: Done with Detroit
+17:37:50 02/23/18 EST: Done with Nashville
+17:38:08 02/23/18 EST: Done with Memphis
+17:38:25 02/23/18 EST: Done with Portland
+17:38:42 02/23/18 EST: Done with Oklahoma City
+17:39:00 02/23/18 EST: Done with Las Vegas
+17:39:15 02/23/18 EST: Done with Louisville
+17:39:36 02/23/18 EST: Done with Baltimore
+17:39:56 02/23/18 EST: Done with Milwaukee
+17:40:13 02/23/18 EST: Done with Albuquerque
+17:40:31 02/23/18 EST: Done with Tucson
+17:40:45 02/23/18 EST: Done with Fresno
+17:41:01 02/23/18 EST: Done with Sacramento
+17:41:17 02/23/18 EST: Done with Mesa
+17:41:55 02/23/18 EST: Done with Kansas City
+17:42:14 02/23/18 EST: Done with Atlanta
+17:42:31 02/23/18 EST: Done with Long Beach
+17:42:45 02/23/18 EST: Done with Colorado Springs
+17:43:01 02/23/18 EST: Done with Raleigh
+17:43:18 02/23/18 EST: Done with Miami
+17:43:33 02/23/18 EST: Done with Virginia Beach
+17:43:48 02/23/18 EST: Done with Omaha
+17:44:06 02/23/18 EST: Done with Oakland
+17:44:25 02/23/18 EST: Done with Minneapolis
+17:44:39 02/23/18 EST: Done with Tulsa
+17:44:56 02/23/18 EST: Done with Arlington
+17:45:11 02/23/18 EST: Done with New Orleans
+17:45:26 02/23/18 EST: Done with Wichita
+17:45:40 02/23/18 EST: Done with Cleveland
+17:45:55 02/23/18 EST: Done with Tampa
+17:46:09 02/23/18 EST: Done with Bakersfield
+17:46:25 02/23/18 EST: Done with Aurora
+17:46:45 02/23/18 EST: Done with Honolulu
+17:47:02 02/23/18 EST: Done with Anaheim
+17:47:20 02/23/18 EST: Done with Santa Ana
+17:47:35 02/23/18 EST: Done with Corpus Christi
+17:47:52 02/23/18 EST: Done with Riverside
+17:48:06 02/23/18 EST: Done with Lexington
+17:48:22 02/23/18 EST: Done with St. Louis
+17:48:37 02/23/18 EST: Done with Stockton
+17:48:52 02/23/18 EST: Done with Pittsburgh
+17:49:09 02/23/18 EST: Done with Saint Paul
+17:49:26 02/23/18 EST: Done with Cincinnati
+17:49:46 02/23/18 EST: Done with Anchorage
+17:50:00 02/23/18 EST: Done with Henderson
+17:50:14 02/23/18 EST: Done with Greensboro
+17:50:30 02/23/18 EST: Done with Plano
+17:50:45 02/23/18 EST: Done with Newark
+17:51:01 02/23/18 EST: Done with Lincoln
+17:51:16 02/23/18 EST: Done with Toledo
+17:51:30 02/23/18 EST: Done with Orlando
+17:51:45 02/23/18 EST: Done with Chula Vista
+17:52:02 02/23/18 EST: Done with Irvine
+17:52:15 02/23/18 EST: Done with Fort Wayne
+17:52:34 02/23/18 EST: Done with Jersey City
+17:52:50 02/23/18 EST: Done with Durham
+17:53:05 02/23/18 EST: Done with St. Petersburg
+17:53:19 02/23/18 EST: Done with Laredo
+17:53:44 02/23/18 EST: Done with Buffalo
+17:54:00 02/23/18 EST: Done with Madison
+17:54:14 02/23/18 EST: Done with Lubbock
+17:54:29 02/23/18 EST: Done with Chandler
+17:54:44 02/23/18 EST: Done with Scottsdale
+17:54:59 02/23/18 EST: Done with Glendale
+17:55:14 02/23/18 EST: Done with Reno
+17:55:30 02/23/18 EST: Done with Norfolk
+17:55:45 02/23/18 EST: Done with Winston–Salem
+17:56:03 02/23/18 EST: Done with North Las Vegas
+17:56:19 02/23/18 EST: Done with Irving
+17:56:35 02/23/18 EST: Done with Chesapeake
+17:56:49 02/23/18 EST: Done with Gilbert
+17:57:03 02/23/18 EST: Done with Hialeah
+17:57:17 02/23/18 EST: Done with Garland
+17:57:32 02/23/18 EST: Done with Fremont
+17:57:48 02/23/18 EST: Done with Baton Rouge
+17:58:03 02/23/18 EST: Done with Richmond
+17:58:23 02/23/18 EST: Done with Boise
+17:58:39 02/23/18 EST: Done with San Bernardino
+17:58:54 02/23/18 EST: Done with Spokane
+17:59:09 02/23/18 EST: Done with Des Moines
+17:59:22 02/23/18 EST: Done with Modesto
+17:59:37 02/23/18 EST: Done with Birmingham
+17:59:53 02/23/18 EST: Done with Tacoma
+18:00:11 02/23/18 EST: Done with Fontana
+18:00:24 02/23/18 EST: Done with Rochester
+18:00:40 02/23/18 EST: Done with Oxnard
+18:00:54 02/23/18 EST: Done with Moreno Valley
+18:01:08 02/23/18 EST: Done with Fayetteville
+18:01:23 02/23/18 EST: Done with Aurora
+18:01:37 02/23/18 EST: Done with Glendale
+18:01:55 02/23/18 EST: Done with Yonkers
+18:02:10 02/23/18 EST: Done with Huntington Beach
+18:02:25 02/23/18 EST: Done with Montgomery
+18:02:44 02/23/18 EST: Done with Amarillo
+18:02:59 02/23/18 EST: Done with Little Rock
+18:03:13 02/23/18 EST: Done with Akron
+18:03:28 02/23/18 EST: Done with Columbus
+18:03:42 02/23/18 EST: Done with Augusta
+18:03:56 02/23/18 EST: Done with Grand Rapids
+18:04:12 02/23/18 EST: Done with Shreveport
+18:04:28 02/23/18 EST: Done with Salt Lake City
+18:04:42 02/23/18 EST: Done with Huntsville
+18:04:56 02/23/18 EST: Done with Mobile
+18:05:09 02/23/18 EST: Done with Tallahassee
+18:05:23 02/23/18 EST: Done with Grand Prairie
+18:05:37 02/23/18 EST: Done with Overland Park
+18:05:51 02/23/18 EST: Done with Knoxville
+18:06:06 02/23/18 EST: Done with Port St. Lucie
+18:06:20 02/23/18 EST: Done with Worcester
+18:06:34 02/23/18 EST: Done with Brownsville
+18:06:49 02/23/18 EST: Done with Tempe
+18:07:04 02/23/18 EST: Done with Santa Clarita
+18:07:18 02/23/18 EST: Done with Newport News
+18:07:32 02/23/18 EST: Done with Cape Coral
+18:07:46 02/23/18 EST: Done with Providence
+18:08:02 02/23/18 EST: Done with Fort Lauderdale
+18:08:16 02/23/18 EST: Done with Chattanooga
+18:08:30 02/23/18 EST: Done with Rancho Cucamonga
+18:08:45 02/23/18 EST: Done with Oceanside
+18:09:02 02/23/18 EST: Done with Santa Rosa
+18:09:15 02/23/18 EST: Done with Garden Grove
+18:09:31 02/23/18 EST: Done with Vancouver
+18:09:45 02/23/18 EST: Done with Sioux Falls
+18:10:01 02/23/18 EST: Done with Ontario
+18:10:15 02/23/18 EST: Done with McKinney
+18:10:31 02/23/18 EST: Done with Elk Grove
+18:10:45 02/23/18 EST: Done with Jackson
+18:10:59 02/23/18 EST: Done with Pembroke Pines
+18:11:14 02/23/18 EST: Done with Salem
+18:11:28 02/23/18 EST: Done with Springfield
+18:11:43 02/23/18 EST: Done with Corona
+18:11:57 02/23/18 EST: Done with Eugene
+18:12:13 02/23/18 EST: Done with Fort Collins
+18:12:27 02/23/18 EST: Done with Peoria
+18:12:49 02/23/18 EST: Done with Frisco
+18:13:04 02/23/18 EST: Done with Cary
+18:13:19 02/23/18 EST: Done with Lancaster
+18:13:33 02/23/18 EST: Done with Hayward
+18:13:47 02/23/18 EST: Done with Palmdale
+18:14:02 02/23/18 EST: Done with Salinas
+18:14:18 02/23/18 EST: Done with Alexandria
+18:14:31 02/23/18 EST: Done with Lakewood
+18:14:45 02/23/18 EST: Done with Springfield
+18:14:58 02/23/18 EST: Done with Pasadena
+18:15:12 02/23/18 EST: Done with Sunnyvale
+18:15:27 02/23/18 EST: Done with Macon
+18:15:41 02/23/18 EST: Done with Pomona
+18:15:56 02/23/18 EST: Done with Hollywood
+18:16:11 02/23/18 EST: Done with Kansas City
+18:16:25 02/23/18 EST: Done with Escondido
+18:16:39 02/23/18 EST: Done with Clarksville
+18:16:54 02/23/18 EST: Done with Joliet
+18:17:08 02/23/18 EST: Done with Rockford
+18:17:22 02/23/18 EST: Done with Torrance
+18:17:38 02/23/18 EST: Done with Naperville
+18:17:52 02/23/18 EST: Done with Paterson
+18:18:06 02/23/18 EST: Done with Savannah
+18:18:20 02/23/18 EST: Done with Bridgeport
+18:18:33 02/23/18 EST: Done with Mesquite
+18:18:49 02/23/18 EST: Done with Killeen
+18:19:03 02/23/18 EST: Done with Syracuse
+18:19:18 02/23/18 EST: Done with McAllen
+18:19:32 02/23/18 EST: Done with Pasadena
+18:19:48 02/23/18 EST: Done with Bellevue
+18:20:03 02/23/18 EST: Done with Fullerton
+18:20:17 02/23/18 EST: Done with Orange
+18:20:32 02/23/18 EST: Done with Dayton
+18:20:48 02/23/18 EST: Done with Miramar
+18:21:04 02/23/18 EST: Done with Thornton
+18:21:19 02/23/18 EST: Done with West Valley City
+18:21:34 02/23/18 EST: Done with Olathe
+18:21:49 02/23/18 EST: Done with Hampton
+18:22:02 02/23/18 EST: Done with Warren
+18:22:16 02/23/18 EST: Done with Midland
+18:22:30 02/23/18 EST: Done with Waco
+18:22:45 02/23/18 EST: Done with Charleston
+18:23:00 02/23/18 EST: Done with Columbia
+18:23:14 02/23/18 EST: Done with Denton
+18:23:28 02/23/18 EST: Done with Carrollton
+18:23:41 02/23/18 EST: Done with Surprise
+18:23:55 02/23/18 EST: Done with Roseville
+18:24:09 02/23/18 EST: Done with Sterling Heights
+18:24:23 02/23/18 EST: Done with Murfreesboro
+18:24:37 02/23/18 EST: Done with Gainesville
+18:24:51 02/23/18 EST: Done with Cedar Rapids
+18:25:06 02/23/18 EST: Done with Visalia
+18:25:22 02/23/18 EST: Done with Coral Springs
+18:25:37 02/23/18 EST: Done with New Haven
+18:25:50 02/23/18 EST: Done with Stamford
+18:26:05 02/23/18 EST: Done with Thousand Oaks
+18:26:19 02/23/18 EST: Done with Concord
+18:26:33 02/23/18 EST: Done with Elizabeth
+18:26:49 02/23/18 EST: Done with Lafayette
+18:27:03 02/23/18 EST: Done with Kent
+18:27:17 02/23/18 EST: Done with Topeka
+18:27:32 02/23/18 EST: Done with Simi Valley
+18:27:46 02/23/18 EST: Done with Santa Clara
+18:28:00 02/23/18 EST: Done with Athens
+18:28:52 02/23/18 EST: Done with Hartford
+18:29:46 02/23/18 EST: Done with Victorville
+18:30:41 02/23/18 EST: Done with Abilene
+18:31:36 02/23/18 EST: Done with Norman
+18:32:34 02/23/18 EST: Done with Vallejo
+18:33:27 02/23/18 EST: Done with Berkeley
+18:34:23 02/23/18 EST: Done with Round Rock
+18:35:18 02/23/18 EST: Done with Ann Arbor
+18:36:12 02/23/18 EST: Done with Fargo
+18:37:05 02/23/18 EST: Done with Columbia
+18:38:01 02/23/18 EST: Done with Allentown
+18:38:56 02/23/18 EST: Done with Evansville
+18:39:51 02/23/18 EST: Done with Beaumont
+18:40:45 02/23/18 EST: Done with Odessa
+18:41:10 02/23/18 EST: Done with Wilmington
+18:41:24 02/23/18 EST: Done with Arvada
+18:41:38 02/23/18 EST: Done with Independence
+18:41:56 02/23/18 EST: Done with Provo
+18:42:11 02/23/18 EST: Done with Lansing
+18:42:26 02/23/18 EST: Done with El Monte
+18:42:39 02/23/18 EST: Done with Springfield
+18:42:53 02/23/18 EST: Done with Fairfield
+18:43:07 02/23/18 EST: Done with Clearwater
+18:43:20 02/23/18 EST: Done with Peoria
+18:43:34 02/23/18 EST: Done with Rochester
+18:43:48 02/23/18 EST: Done with Carlsbad
+18:44:04 02/23/18 EST: Done with Westminster
+18:44:18 02/23/18 EST: Done with West Jordan
+18:44:36 02/23/18 EST: Done with Pearland
+18:44:50 02/23/18 EST: Done with Richardson
+18:45:05 02/23/18 EST: Done with Downey
+18:45:22 02/23/18 EST: Done with Miami Gardens
+18:45:37 02/23/18 EST: Done with Temecula
+18:45:51 02/23/18 EST: Done with Costa Mesa
+18:46:04 02/23/18 EST: Done with College Station
+18:46:20 02/23/18 EST: Done with Elgin
+18:46:33 02/23/18 EST: Done with Murrieta
+18:46:48 02/23/18 EST: Done with Gresham
+18:47:02 02/23/18 EST: Done with High Point
+18:47:19 02/23/18 EST: Done with Antioch
+18:47:33 02/23/18 EST: Done with Inglewood
+18:47:47 02/23/18 EST: Done with Cambridge
+18:48:05 02/23/18 EST: Done with Lowell
+18:48:21 02/23/18 EST: Done with Manchester
+18:48:36 02/23/18 EST: Done with Billings
+18:48:50 02/23/18 EST: Done with Pueblo
+18:49:04 02/23/18 EST: Done with Palm Bay
+18:49:19 02/23/18 EST: Done with Centennial
+18:49:33 02/23/18 EST: Done with Richmond
+18:49:48 02/23/18 EST: Done with Ventura
+18:50:04 02/23/18 EST: Done with Pompano Beach
+18:50:19 02/23/18 EST: Done with North Charleston
+18:50:33 02/23/18 EST: Done with Everett
+18:50:47 02/23/18 EST: Done with Waterbury
+18:51:01 02/23/18 EST: Done with West Palm Beach
+18:51:17 02/23/18 EST: Done with Boulder
+18:51:31 02/23/18 EST: Done with West Covina
+18:51:46 02/23/18 EST: Done with Broken Arrow
+18:52:00 02/23/18 EST: Done with Clovis
+18:52:14 02/23/18 EST: Done with Daly City
+18:52:31 02/23/18 EST: Done with Lakeland
+18:52:44 02/23/18 EST: Done with Santa Maria
+18:52:59 02/23/18 EST: Done with Norwalk
+18:53:14 02/23/18 EST: Done with Sandy Springs
+18:53:30 02/23/18 EST: Done with Hillsboro
+18:53:45 02/23/18 EST: Done with Green Bay
+18:53:59 02/23/18 EST: Done with Tyler
+18:54:12 02/23/18 EST: Done with Wichita Falls
+18:54:27 02/23/18 EST: Done with Lewisville
+18:54:46 02/23/18 EST: Done with Burbank
+18:55:00 02/23/18 EST: Done with Greeley
+18:55:14 02/23/18 EST: Done with San Mateo
+18:55:29 02/23/18 EST: Done with El Cajon
+18:55:43 02/23/18 EST: Done with Jurupa Valley
+18:55:57 02/23/18 EST: Done with Rialto
+18:56:12 02/23/18 EST: Done with Davenport
+18:56:27 02/23/18 EST: Done with League City
+18:56:42 02/23/18 EST: Done with Edison
+18:56:56 02/23/18 EST: Done with Davie
+18:57:10 02/23/18 EST: Done with Las Cruces
+18:57:24 02/23/18 EST: Done with South Bend
+18:57:39 02/23/18 EST: Done with Vista
+18:57:52 02/23/18 EST: Done with Woodbridge
+18:58:07 02/23/18 EST: Done with Renton
+18:58:21 02/23/18 EST: Done with Lakewood
+18:58:38 02/23/18 EST: Done with San Angelo
+18:58:52 02/23/18 EST: Done with Clinton
+18:59:02 02/23/18 EST: Wrote DataFrame to database.csv
