@@ -3,6 +3,8 @@
 const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
+const pg = require('pg')
+var pool = new pg.Pool()
 const app = express()
 const port = process.env.PORT || 7777
 
@@ -16,6 +18,18 @@ app.get('/', (req, res) => {
 
 app.get('/query', (req, res) => {
     // Check database for criteria options (including geneology)
+    console.log('about to query db...')
+    pool.connect(process.env.DATABASE_URL, (err, client, done) => {
+        client.query('SELECT * FROM meta', (err, res) => {
+            if (err) {
+                return console.log('uh oh, something went wrong', err)
+            } else {
+                console.log(res.rows)
+            }
+        })
+        done()
+    })
+    console.log('just finished querying db...')
     var options = {
                     'climate': {
                         'selected': false,
