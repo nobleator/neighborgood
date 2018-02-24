@@ -1,8 +1,10 @@
 // server.js
 
+require('dotenv').load()
 const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
+const url = require('url')
 const pg = require('pg')
 const app = express()
 const port = process.env.PORT || 7777
@@ -11,7 +13,16 @@ app.use(express.static( path.join(__dirname, '/public')))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
-const config = process.env.DATABASE_URI || require('./config')
+const params = url.parse(process.env.DATABASE_URL)
+const auth = params.auth.split(':')
+const config = {
+    user: auth[0],
+    password: auth[1],
+    host: params.hostname,
+    port: params.port,
+    database: params.pathname.split('/')[1],
+    //ssl: true
+}
 console.log(config)
 const pool = new pg.Pool(config)
 
