@@ -20,12 +20,9 @@ var forceSSL = (req, res, next) => {
     }
     return next();
 }
-
-app.configure( () => {
-    if (env === 'production') {
-        app.use(forceSSL);
-    }
-})
+if (env === 'production') {
+    app.use(forceSSL);
+}
 
 const params = url.parse(process.env.DATABASE_URL)
 const auth = params.auth.split(':')
