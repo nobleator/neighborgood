@@ -8,10 +8,24 @@ const url = require('url')
 const pg = require('pg')
 const app = express()
 const port = process.env.PORT || 7777
+const env = process.env.NODE_ENV || 'development'
 
 app.use(express.static( path.join(__dirname, '/public')))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+
+var forceSSL = (req, res, next) => {
+    if (req.headers['x-forwarded-proto'] !== 'https') {
+        return res.redirect(['https://', req.get('Host'), req.url].join(''));
+    }
+    return next();
+}
+
+app.configure( () => {
+    if (env === 'production') {
+        app.use(forceSSL);
+    }
+})
 
 const params = url.parse(process.env.DATABASE_URL)
 const auth = params.auth.split(':')
@@ -20,8 +34,7 @@ const config = {
     password: auth[1],
     host: params.hostname,
     port: params.port,
-    database: params.pathname.split('/')[1],
-    //ssl: true
+    database: params.pathname.split('/')[1]
 }
 console.log(config)
 const pool = new pg.Pool(config)
