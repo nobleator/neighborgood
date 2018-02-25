@@ -15,13 +15,15 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
 var forceSSL = (req, res, next) => {
+    console.log('in forceSSL, x-forwarded-proto: ', req.headers['x-forwarded-proto'])
     if (req.headers['x-forwarded-proto'] !== 'https') {
-        return res.redirect(['https://', req.get('Host'), req.url].join(''));
+        return res.redirect(['https://', req.get('Host'), req.url].join(''))
     }
     return next();
 }
+console.log('env: ', env)
 if (env === 'production') {
-    app.use(forceSSL);
+    app.use(forceSSL)
 }
 
 const params = url.parse(process.env.DATABASE_URL)
