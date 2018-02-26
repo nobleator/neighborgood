@@ -43,8 +43,8 @@ app.get('/', (req, res) => {
     res.sendFile('index.html')
 })
 
+var options = {}
 app.get('/query', (req, res) => {
-    var options = {}
     pool.connect((err, client, done) => {
         if (err) {
             return console.log('unable to connect to pool', err)
@@ -74,9 +74,9 @@ app.get('/query', (req, res) => {
     })
 })
 
-// TODO: Feed data into the following code
-var A = math.matrix([[1, 3], [5, 1]])
+/*var A = math.matrix([[1, 3], [5, 1]])
 console.log(A._data)
+console.log(calculateWeights(A))*/
 function normalize(mat) {
     function getColSum(m, cIndx) {
         var col = math.flatten(math.subset(m, math.index(math.range(0, numberOfRows), colIndx))._data)
@@ -97,32 +97,63 @@ function normalize(mat) {
     }
     return norm
 }
-var nA = normalize(A)
-var size = nA.size()
-var numberOfRows = size[0]
-for (var rowIndx = 0; rowIndx < numberOfRows; rowIndx++) {
-    var row = nA._data[rowIndx]
-    var rowSum = row.reduce((a, b) => a + b)
-    var rowWeight = rowSum / numberOfRows
-    console.log(row, rowSum, rowWeight)
+function calculateWeights(A) {
+    var weights = []
+    var nA = normalize(A)
+    var size = nA.size()
+    var numberOfRows = size[0]
+    for (var rowIndx = 0; rowIndx < numberOfRows; rowIndx++) {
+        var row = nA._data[rowIndx]
+        var rowSum = row.reduce((a, b) => a + b)
+        var rowWeight = rowSum / numberOfRows
+        weights.push(rowWeight)
+    }
+    return weights
 }
 
+var selectedSiblings = {}
 app.post('/submit', (req, res) => {
     // TODO: Save preference selections
-    // Check database for selected criteria values
-    // Calculate utility
+    // TODO: Condense/clean up this section?
     var selectedCriteria = []
-    var weights = JSON.parse(Object.keys(req.body)[0])
-    console.log(weights)
-    for (var comparison in weights) {
-        var temp = comparison.split('-');
+    var userInput = JSON.parse(Object.keys(req.body)[0])
+    console.log(userInput)
+    for (var comparison in userInput) {
+        var temp = comparison.split('-')
         for (var i = 0; i < temp.length; i++) {
             if (!(selectedCriteria.includes(temp[i]))) {
                 selectedCriteria.push(temp[i])
             }
         }
     }
-    console.log(selectedCriteria)
+    for (var i = 0; i < selectedCriteria.length; i++) {
+        if (options[selectedCriteria[i]].parent in selectedSiblings) {
+            selectedSiblings[options[selectedCriteria[i]].parent].push(selectedCriteria[i])
+        } else {
+            selectedSiblings[options[selectedCriteria[i]].parent] = [selectedCriteria[i]]
+        }
+    }
+    console.log(selectedSiblings)
+    for (var parent in selectedSiblings) {
+        var siblings = selectedSiblings[parent]
+        var matrix = math.eye(siblings.length)
+        for (var comparison in userInput) {
+            var val = parseFloat(userInput[comparison])
+            if (val < 0) {
+                val = 1 / (-val)
+            } else if (val == 0) {
+                val = 1
+            }
+            var rowElem = comparison.split('-')[0]
+            var rowIndx = siblings.indexOf(rowElem)
+            var colElem = comparison.split('-')[1]
+            var colIndx = siblings.indexOf(colElem)
+            matrix.subset(math.index(rowIndx, colIndx), val)
+            matrix.subset(math.index(colIndx, rowIndx), 1 / val)
+            console.log(matrix)
+        }
+    }
+    
     var results = {}
     pool.connect((err, client, done) => {
         if (err) {
@@ -135,7 +166,7 @@ app.post('/submit', (req, res) => {
                 res.status(400).send(err)
             }
             var rows = qRes.rows
-            console.log(rows)
+            //console.log(rows)
             res.status(200).json(results)
         })
     })
