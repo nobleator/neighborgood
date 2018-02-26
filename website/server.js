@@ -154,6 +154,77 @@ app.post('/submit', (req, res) => {
         }
     }
     
+    /*
+    // Use real userInput data
+    var userInput = {'options': {'climate': {'selected': true,
+                                         'parent': null,
+                                         'children': ['hot', 'cold']},
+                             'hot': {'selected': true,
+                                         'parent': 'climate',
+                                         'children': []},
+                             'cold': {'selected': true,
+                                         'parent': 'climate',
+                                         'children': []},
+                             'demographics': {'selected': false,
+                                              'parent': null,
+                                              'children': []}},
+                 'comparisons': {'hot-cold': -2}};
+    var selectedSiblings = {};
+    var options = userInput['options'];
+    for (var criteria in options) {
+        if (options[criteria]['selected']) {
+            var parent = options[criteria]['parent'];
+            if (parent in selectedSiblings) {
+                selectedSiblings[parent].push(criteria);
+            } else {
+                selectedSiblings[parent] = [criteria];
+            }
+        }
+    }
+    // Use real weight calulcator
+    function getWeights(listOfElements) {
+        if (listOfElements.length == 1) {
+            return [1];
+        } else if (listOfElements.length == 2) {
+            return [0.75, 0.25];
+        } else if (listOfElements.length == 3) {
+            return [0.25, 0.5, 0.25];
+        }
+    }
+    console.log(selectedSiblings);
+    weights = {};
+    for (var criteria in options) {
+        siblings = selectedSiblings[userInput['options'][criteria]['parent']];
+        console.log(siblings);
+        if (criteria in weights) {
+            continue;
+        }
+        if (!options[criteria]['selected']) {
+            weights[criteria] = 0;
+        } else if (siblings.length < 2) {
+            weights[criteria] = 1;
+        } else {
+            sibWeights = getWeights(siblings);
+            for (var i = 0; i < siblings.length; i++) {
+                weights[siblings[i]] = sibWeights[i];
+            } 
+        } 
+    }
+    console.log(weights);
+    // Get cities data from DB (may need to convert format as well)
+    cities = {'Portland': {'hot': 70, 'cold': 45},
+              'Boston': {'hot': 65, 'cold': 20}};
+    results = {};
+    for (var city in cities) {
+        results[city] = {'utility': 0};
+        for (var criteria in cities[city]) {
+            console.log(cities[city][criteria], weights[criteria]);
+            results[city]['utility'] += (cities[city][criteria] * weights[criteria]);
+        }
+    }
+    console.log(results);
+    */
+    
     var results = {}
     pool.connect((err, client, done) => {
         if (err) {
