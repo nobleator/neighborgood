@@ -8,10 +8,10 @@ Go to: https://better-neighborgood.herokuapp.com, follow the instructions there.
 
 ## Changelog (and Planned Features)
 ### v1.0
-[x] Initial data and proof of concept
+- [x] Initial data and proof of concept
 ### v2.0
-[] More criteria and data
-[] Heatmap of results (Mapbox API)
+- [] More criteria and data
+- [] Heatmap of results (Mapbox API)
 
 ## Problem Statement and Design
 ### Problem Statement
