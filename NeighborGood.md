@@ -4,11 +4,11 @@
 This is a tool to help you find and choose a neighborhood to live in.
 
 ## How to Use It
-Go to: <URL>, follow the instructions there.
+Go to: https://better-neighborgood.herokuapp.com, follow the instructions there.
 
 ## Changelog (and Planned Features)
 ### v1.0
-- [] Initial data and proof of concept
+- [x] Initial data and proof of concept
 ### v2.0
 - [] More criteria and data
 - [] Heatmap of results (Mapbox API)
