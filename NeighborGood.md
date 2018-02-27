@@ -36,49 +36,49 @@ National Oceanic and Atmospheric Adminstration: https://www.ncdc.noaa.gov/cdo-we
 v1.0
 Cities List -> wikipedia.org
 Criteria
-    Demographics
-        Population -> wikipedia.org
-        Population Density -> wikipedia.org
-    Cost
-        Housing Prices -> zillow.com
-        Regional Price Parity -> Bureau of Economic Analysis
-    Climate
-        Longterm Avg Annual Low -> ncdc.noaa.gov 
-        Longterm Avg Annual High -> ncdc.noaa.gov
-        Longterm Avg Precipitation Total -> ncdc.noaa.gov
-    Mobility
-        Walkability -> walkscore.com
-        Bikability -> walkscore.com
-        Public Transit -> walkscore.com
+ - Demographics
+  - Population -> wikipedia.org
+  - Population Density -> wikipedia.org
+ - Cost
+  - Housing Prices -> zillow.com
+  - Regional Price Parity -> Bureau of Economic Analysis
+ - Climate
+  - Longterm Avg Annual Low -> ncdc.noaa.gov 
+  - Longterm Avg Annual High -> ncdc.noaa.gov
+  - Longterm Avg Precipitation Total -> ncdc.noaa.gov
+ - Mobility
+  - Walkability -> walkscore.com
+  - Bikability -> walkscore.com
+  - Public Transit -> walkscore.com
 
 v2.0
 Cities List -> wikipedia.org
 Geographic Filtering -> Click on map, sort by distanct from selected point
-Criteria:
-    Demographics
-        Population -> wikipedia.org
-        Population Density -> wikipedia.org
-    Cost
-        Housing Prices -> city-data.com
-        Cost of Living Index -> city-data.com
-        Taxes -> State-specific?
-    Climate
-        Feb Avg Low -> wikipedia.org
-        Aug Avg High -> wikipedia.org
-        Annual Avg Precipitation Days -> wikipedia.org
-    Culture
-        Distance to mountains or beaches -> ???
-        Wikipedia Article Length? -> wikipedia.org
-        Racial Diversity -> city-data.com
-    Mobility
-        Walkability -> walkscore.com
-        Bikability -> walkscore.com
-        Public Transit -> walkscore.com
-    Economic
-        Unemployment Rate -> city-data.com
-        Crime Rate -> city-data.com
-        Interconnectedness (e.g. number of airports)
-        Specific Career Selection -> Select from drop-down menu
+Criteria
+ - Demographics
+  - Population -> wikipedia.org
+  - Population Density -> wikipedia.org
+ - Cost
+  - Housing Prices -> zillow.com
+  - Regional Price Parity -> Bureau of Economic Analysis
+  - Taxes -> State-specific?
+ - Climate
+  - Longterm Avg Annual Low -> ncdc.noaa.gov 
+  - Longterm Avg Annual High -> ncdc.noaa.gov
+  - Longterm Avg Precipitation Total -> ncdc.noaa.gov
+ - Culture
+  - Distance to mountains or beaches -> ???
+  - Wikipedia Article Length? -> wikipedia.org
+  - Racial Diversity -> city-data.com
+ - Mobility
+  - Walkability -> walkscore.com
+  - Bikability -> walkscore.com
+  - Public Transit -> walkscore.com
+ - Economic
+  - Unemployment Rate -> city-data.com
+  - Crime Rate -> city-data.com
+  - Interconnectedness (e.g. number of airports)
+  - Specific Career Selection -> Select from drop-down menu
 
 
 ## License
