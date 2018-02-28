@@ -184,6 +184,47 @@ app.post('/submit', (req, res) => {
                     cities[rows[i]['city']][criteria] = parseFloat(rows[i][criteria])
                 }
             }
+            /*
+            function linearize(x, maxX, minX, asc) {
+                var c = 0
+                var d = 0
+                if (asc) {
+                    var a = minX
+                    var b = maxX
+                } else {
+                    var a = maxX
+                    var b = minX
+                }
+                return (x - a) * ((d - c) / (b - a)) + c
+            }
+            maximums = {}
+            minimums = {}
+            for (var city in cities) {
+                for (var criteria in cities[city]) {
+                    if (!(criteria in maximums) || cities[city][criteria] > maximums[criteria]) {
+                        maximums[criteria] = cities[city][criteria]
+                    }
+                    if (!(criteria in minimums) || cities[city][criteria] < minimums[criteria]) {
+                        minimums[criteria] = cities[city][criteria]
+                    }
+                }
+            }
+            // TODO: Add preferred directions to meta table?
+            // preferred = {criteria: 'asc' || 'desc'}
+            for (var city in cities) {
+                results[city] = {'utility': 0, 'cost': cities[city]['housing_cost']}
+                for (var criteria in cities[city]) {
+                    if (preferred[criteria] == 'asc') {
+                        results[city]['utility'] += linearize(cities[city][criteria], maximums[criteria], minimums[criteria], true) * weights[criteria]
+                    } else {
+                        results[city]['utility'] += linearize(cities[city][criteria], maximums[criteria], minimums[criteria], false) * weights[criteria]
+                    }
+                }
+                // Edit output formatting
+                results[city]['utility'] = Math.round(results[city]['utility'] * 100) / 100
+                //results[city]['cost'] = results[city]['cost'].toLocaleString('en-US', {style: 'currency', currency: 'USD'})
+            }
+            */
             results = {}
             for (var city in cities) {
                 results[city] = {'utility': 0, 'cost': cities[city]['housing_cost']}
