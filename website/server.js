@@ -44,6 +44,7 @@ app.get('/', (req, res) => {
 })
 
 var options = {}
+// var asc_preferred = {}
 app.get('/query', (req, res) => {
     pool.connect((err, client, done) => {
         if (err) {
@@ -62,6 +63,7 @@ app.get('/query', (req, res) => {
                                             "parent": rows[i].parent,
                                             "children": []
                                             }
+                // asc_preferred[rows[i].criteria] = rows[i].asc_preferred
             }
             for (var i = 1; i < rows.length; i ++) {
                 var parent = options[rows[i].criteria].parent
@@ -73,7 +75,22 @@ app.get('/query', (req, res) => {
         })
     })
 })
-
+/*
+function linearize(x, maxX, minX, asc) {
+    // Transforms number x in the range [a, b] to the number y in the range [c, d]
+    // y = (x - a)((d - c)/(b - a)) + c
+    var c = 0
+    var d = 10
+    if (asc) {
+        var a = minX
+        var b = maxX
+    } else {
+        var a = maxX
+        var b = minX
+    }
+    return (x - a) * ((d - c) / (b - a)) + c
+}
+*/
 app.post('/submit', (req, res) => {
     // TODO: Save preference selections
     // TODO: Condense/clean up this section
@@ -165,7 +182,6 @@ app.post('/submit', (req, res) => {
             } 
         } 
     }
-    
     pool.connect((err, client, done) => {
         if (err) {
             return console.log('unable to connect to pool', err)
@@ -185,18 +201,6 @@ app.post('/submit', (req, res) => {
                 }
             }
             /*
-            function linearize(x, maxX, minX, asc) {
-                var c = 0
-                var d = 0
-                if (asc) {
-                    var a = minX
-                    var b = maxX
-                } else {
-                    var a = maxX
-                    var b = minX
-                }
-                return (x - a) * ((d - c) / (b - a)) + c
-            }
             maximums = {}
             minimums = {}
             for (var city in cities) {
@@ -209,7 +213,6 @@ app.post('/submit', (req, res) => {
                     }
                 }
             }
-            // TODO: Add preferred directions to meta table?
             // asc_preferred = {criteria: true if ascending, false otherwise}
             for (var city in cities) {
                 results[city] = {'utility': 0, 'cost': cities[city]['housing_cost']}
