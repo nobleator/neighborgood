@@ -210,15 +210,12 @@ app.post('/submit', (req, res) => {
                 }
             }
             // TODO: Add preferred directions to meta table?
-            // preferred = {criteria: 'asc' || 'desc'}
+            // asc_preferred = {criteria: true if ascending, false otherwise}
             for (var city in cities) {
                 results[city] = {'utility': 0, 'cost': cities[city]['housing_cost']}
                 for (var criteria in cities[city]) {
-                    if (preferred[criteria] == 'asc') {
-                        results[city]['utility'] += linearize(cities[city][criteria], maximums[criteria], minimums[criteria], true) * weights[criteria]
-                    } else {
-                        results[city]['utility'] += linearize(cities[city][criteria], maximums[criteria], minimums[criteria], false) * weights[criteria]
-                    }
+                    var score = linearize(cities[city][criteria], maximums[criteria], minimums[criteria], asc_preferred[criteria])
+                    results[city]['utility'] += score * weights[criteria]
                 }
                 // Edit output formatting
                 results[city]['utility'] = Math.round(results[city]['utility'] * 100) / 100
