@@ -8,20 +8,20 @@
     <link rel='stylesheet' href='style.css'>
 </head>
 
-<body onload="writeOptions('criteria-list');">
+<body>
     <div id='intro'>
         <span>Welcome to NeighborGood. Want to move, but don't know where? Don't worry, all your indecision will come to an end as we apply analytical rigor to your neighborhood selection process.</span>
     </div>
     <div id='criteria'>
         <span>Possible criteria. Please select the attributes you are interested in.</span>
         <ul id='criteria-list'></ul>
-        <button onclick='getChecked("weights");'>Continue</button>
+        <button id="submitChecked">Continue</button>
     </div>
     
     <div>
         <span>Drag the slider towards the criteria that you care more about (the more you prefer than criteria, the farther you drag it).</span>
         <div id='weights'></div>
-        <button onclick='getWeights();'>Finish</button>
+        <button id="submitWeights">Finish</button>
     </div>
     
     <div id='results'>
@@ -29,9 +29,9 @@
         <table id='resultsTable'>
             <thead>
                 <tr>
-                    <th onclick="sortTable(0);">City</th>
-                    <th onclick="sortTable(1);">Utility</th>
-                    <th onclick="sortTable(2);">Cost</th>
+                    <th id="sort0">City</th>
+                    <th id="sort1">Utility</th>
+                    <th id="sort2">Cost</th>
                 </tr>
             </thead>
             <tbody id='resultsTableBody'></tbody>
