@@ -44,30 +44,30 @@ app.get('/', (req, res) => {
 })
 
 var options = {}
-// var asc_preferred = {}
+//var asc_preferred = {}
 app.get('/query', (req, res) => {
     pool.connect((err, client, done) => {
         if (err) {
             return console.log('unable to connect to pool', err)
         }
-        client.query('SELECT * FROM meta;', (err, qRes) => {
+        client.query('SELECT * FROM meta_v1;', (err, qRes) => {
             done()
             if (err) {
                 console.log('query failed', err)
                 res.status(400).send(err)
             }
             var rows = qRes.rows
-            for (var i = 1; i < rows.length; i ++) {
+            for (var i = 0; i < rows.length; i ++) {
                 options[rows[i].criteria] = {
                                             "selected": false,
                                             "parent": rows[i].parent,
-                                            "children": []
+                                            "children": [],
+                                            "asc_preferred": rows[i].asc_preferred
                                             }
-                // asc_preferred[rows[i].criteria] = rows[i].asc_preferred
             }
-            for (var i = 1; i < rows.length; i ++) {
+            for (var i = 0; i < rows.length; i ++) {
                 var parent = options[rows[i].criteria].parent
-                if (parent) {
+                if (parent && !(options[parent].children.includes(rows[i].criteria))) {
                     options[parent].children.push(rows[i].criteria)
                 }
             }
@@ -75,7 +75,7 @@ app.get('/query', (req, res) => {
         })
     })
 })
-/*
+
 function linearize(x, maxX, minX, asc) {
     // Transforms number x in the range [a, b] to the number y in the range [c, d]
     // y = (x - a)((d - c)/(b - a)) + c
@@ -90,7 +90,7 @@ function linearize(x, maxX, minX, asc) {
     }
     return (x - a) * ((d - c) / (b - a)) + c
 }
-*/
+
 app.post('/submit', (req, res) => {
     // TODO: Save preference selections
     // TODO: Condense/clean up this section
@@ -186,7 +186,7 @@ app.post('/submit', (req, res) => {
         if (err) {
             return console.log('unable to connect to pool', err)
         }
-        client.query('SELECT * FROM data;', (err, qRes) => {
+        client.query('SELECT * FROM data_v1;', (err, qRes) => {
             done()
             if (err) {
                 console.log('query failed', err)
@@ -194,13 +194,13 @@ app.post('/submit', (req, res) => {
             }
             var rows = qRes.rows
             cities = {}
-            for (var i = 1; i < rows.length; i++) {
+            for (var i = 0; i < rows.length; i++) {
                 cities[rows[i]['city']] = {}
                 for (var criteria in rows[i]) {
                     cities[rows[i]['city']][criteria] = parseFloat(rows[i][criteria])
                 }
             }
-            /*
+            
             maximums = {}
             minimums = {}
             for (var city in cities) {
@@ -213,18 +213,24 @@ app.post('/submit', (req, res) => {
                     }
                 }
             }
-            // asc_preferred = {criteria: true if ascending, false otherwise}
+            // asc_preferred = true if ascending, false otherwise
+            results = {}
             for (var city in cities) {
                 results[city] = {'utility': 0, 'cost': cities[city]['housing_cost']}
                 for (var criteria in cities[city]) {
-                    var score = linearize(cities[city][criteria], maximums[criteria], minimums[criteria], asc_preferred[criteria])
+                    if (!(criteria in options)) { continue }
+                    var score = linearize(cities[city][criteria],
+                                          maximums[criteria],
+                                          minimums[criteria],
+                                          options[criteria]['asc_preferred'])
                     results[city]['utility'] += score * weights[criteria]
                 }
                 // Edit output formatting
                 results[city]['utility'] = Math.round(results[city]['utility'] * 100) / 100
                 //results[city]['cost'] = results[city]['cost'].toLocaleString('en-US', {style: 'currency', currency: 'USD'})
             }
-            */
+
+            /*
             results = {}
             for (var city in cities) {
                 results[city] = {'utility': 0, 'cost': cities[city]['housing_cost']}
@@ -237,6 +243,7 @@ app.post('/submit', (req, res) => {
                 results[city]['utility'] = Math.round(results[city]['utility'] * 100) / 100
                 //results[city]['cost'] = results[city]['cost'].toLocaleString('en-US', {style: 'currency', currency: 'USD'})
             }
+            */
             function getTopTen() {
                 function findMin(arr) {
                     var minUtility = 1000000
