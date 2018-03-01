@@ -11,16 +11,31 @@ ul {
     margin: 0 auto;
     list-style-type: none;
 }
+#criteria-list {
+    width: 50%;
+    margin-left: 25%;
+}
+button {
+    float: right;
+    margin-right: 5em;
+}
+#weights {
+    display: table;
+}
 .range {
-    display: flex;
-    align-items: center;
-    justify-content: center;    
+    display: table-row;
+    max-width: 30em;
+}
+.range > input, .left, .right {
+    display: table-cell;
 }
 .left {
     padding-right: 1em;
+    text-align: right;
 }
 .right {
     padding-left: 1em;
+    text-align: left;
 }
 table {
     margin: 0 auto;
