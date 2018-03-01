@@ -230,20 +230,6 @@ app.post('/submit', (req, res) => {
                 //results[city]['cost'] = results[city]['cost'].toLocaleString('en-US', {style: 'currency', currency: 'USD'})
             }
 
-            /*
-            results = {}
-            for (var city in cities) {
-                results[city] = {'utility': 0, 'cost': cities[city]['housing_cost']}
-                for (var criteria in cities[city]) {
-                    if (criteria in userInput['options'] && userInput['options'][criteria]['selected']) {
-                        results[city]['utility'] += (cities[city][criteria] * weights[criteria])
-                    }
-                }
-                // Edit output formatting
-                results[city]['utility'] = Math.round(results[city]['utility'] * 100) / 100
-                //results[city]['cost'] = results[city]['cost'].toLocaleString('en-US', {style: 'currency', currency: 'USD'})
-            }
-            */
             function getTopTen() {
                 function findMin(arr) {
                     var minUtility = 1000000
