@@ -1,17 +1,36 @@
 body {
   padding: 5% 0;
   background-color: #ecf0f1;
-  /*text-align: center;*/
 }
 div {
     max-width: 40em;
     margin: 0 auto;
     padding: 2% 0;
 }
-table {
-    margin: 0 auto;
-}
 ul {
     margin: 0 auto;
     list-style-type: none;
+}
+.range {
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+.left {
+    padding-right: 1em;
+}
+.right {
+    padding-left: 1em;
+}
+table {
+    margin: 0 auto;
+}
+th, td {
+    padding: 0.1em 1em;
+}
+th {
+    text-align: center;
+}
+td {
+    text-align: left;
 }
