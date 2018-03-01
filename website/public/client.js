@@ -17,7 +17,8 @@ function getOptions(callback) {
     xhr.send();
 };
 
-function writeOptions(elemID) {
+function writeOptions() {
+    var elemID = 'criteria-list';
     getOptions((data) => {
         var output = '<ul>';
         function write(elem) {
@@ -42,7 +43,8 @@ function writeOptions(elemID) {
     });
 };
 
-function getChecked(elemID) {
+function getChecked() {
+    var elemID = 'weights';
     var comparisons = {null: []};
     for (var option in options) {
         if (options[option]['children'].length > 0) {
@@ -209,3 +211,14 @@ function sortTable(n) {
     }
   }
 }
+
+// Event listeners and initialization
+function init() {
+    writeOptions();
+    document.getElementById('submitChecked').addEventListener('click', getChecked, false);
+    document.getElementById('submitWeights').addEventListener('click', getWeights, false);
+    document.getElementById('sort0').addEventListener('click', () => { sortTable(0); }, false);
+    document.getElementById('sort1').addEventListener('click', () => { sortTable(1); }, false);
+    document.getElementById('sort2').addEventListener('click', () => { sortTable(2); }, false);
+}
+window.addEventListener('load', init, false);
