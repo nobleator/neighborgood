@@ -1,7 +1,5 @@
 /*
-TODO: Remove inline onclick events from index.html and convert to event
-listeners.
-TODO: Clean up variable declarations (move to top of function).
+TODO: Clean up variable declarations (move to top of function, use const and let, etc).
 TODO: Change function names for easier minificaiton.
 */
 var options;
@@ -17,12 +15,30 @@ function getOptions(callback) {
     xhr.send();
 };
 
+function makeReadable(word) {
+    var translated = '';
+    var cap = true;
+    for (var cIndx = 0; cIndx < word.length; cIndx++) {
+        ch = word.charAt(cIndx);
+        if (ch == '_') {
+            translated += ' ';
+            cap = true;
+        } else if (cap) {
+            translated += word.charAt(cIndx).toUpperCase();
+            cap = false;
+        } else {
+            translated += word.charAt(cIndx);
+        }
+    }
+    return translated;
+};
+
 function writeOptions() {
     var elemID = 'criteria-list';
     getOptions((data) => {
         var output = '<ul>';
         function write(elem) {
-            output += '<li><input type="checkbox" onchange="verifySelection(this);" id="' + elem + '">' + elem + '</li>';
+            output += '<li><input type="checkbox" onchange="verifySelection(this);" id="' + elem + '">' + makeReadable(elem) + '</li>';
             if (data[elem]['children'].length > 0) {
                 output += '<ul>';
                 for (var child in data[elem]['children']) {
@@ -65,10 +81,10 @@ function getChecked() {
         for (var i1 = 0; i1 < subList.length - 1; i1++) {
             for (var i2 = i1 + 1; i2 < subList.length; i2++) {
                 output += '<div class="range">';
-                output += '<span class="left">' + subList[i1] + '</span>';
+                output += '<span class="left">' + makeReadable(subList[i1]) + '</span>';
                 output += '<input type="range" min="-9" max="9" step="1" id="'
                 output += subList[i1] + '-' + subList[i2] + '">';
-                output += '<span class="right">' + subList[i2] + '</span>';
+                output += '<span class="right">' + makeReadable(subList[i2]) + '</span>';
                 output += '</div>';
             };
         };
