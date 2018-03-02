@@ -36,25 +36,26 @@ function makeReadable(word) {
 function writeOptions() {
     var elemID = 'criteria-list';
     getOptions((data) => {
-        var output = '<ul>';
+        var output = '<div class="row">';
         function write(elem) {
-            output += '<li><input type="checkbox" onchange="verifySelection(this);" id="' + elem + '">' + makeReadable(elem) + '</li>';
+            output += '<div class="subrow"><input type="checkbox" onchange="verifySelection(this);" id="' + elem + '">';
+            output += '<label for="' + elem + '"class="ck-button">' + makeReadable(elem) + '</label></div>'
             if (data[elem]['children'].length > 0) {
-                output += '<ul>';
                 for (var child in data[elem]['children']) {
                     write(data[elem]['children'][child]);
                 };
-                output += '</ul>';
             };
             return output
         };
         
         for (var option in data) {
             if (data[option]['parent'] == null) {
+                output += '<div class="cell">';
                 write(option);
+                output += '</div>';
             };
         };
-        output += '</ul>';
+        output += '</div>';
         document.getElementById(elemID).innerHTML = output;
     });
 };
