@@ -16,6 +16,7 @@ function getOptions(callback) {
 };
 
 function makeReadable(word) {
+    if (word == 'rpp') { return word.toUpperCase(); }
     var translated = '';
     var cap = true;
     for (var cIndx = 0; cIndx < word.length; cIndx++) {
@@ -34,7 +35,6 @@ function makeReadable(word) {
 };
 
 function writeOptions() {
-    var elemID = 'criteria-list';
     getOptions((data) => {
         var output = '<div class="row">';
         function write(elem) {
@@ -56,12 +56,11 @@ function writeOptions() {
             };
         };
         output += '</div>';
-        document.getElementById(elemID).innerHTML = output;
+        document.getElementById('criteria-list').innerHTML = output;
     });
 };
 
 function getChecked() {
-    var elemID = 'weights';
     var comparisons = {null: []};
     for (var option in options) {
         if (options[option]['children'].length > 0) {
@@ -90,7 +89,7 @@ function getChecked() {
             };
         };
     };
-    document.getElementById(elemID).innerHTML = output;
+    document.getElementById('weights').innerHTML = output;
 };
                                 
 function verifySelection(elem) {
@@ -138,8 +137,8 @@ function verifySelection(elem) {
 
 function progressBar() {
     var elem = document.getElementById("progBarInner"); 
-    var width = 1;
-    var id = setInterval(frame, 25);
+    var width = 0;
+    var id = setInterval(frame, 20);
     function frame() {
         if (width >= 100) {
             document.getElementById("resultsTable").style.visibility = "visible";
@@ -153,6 +152,7 @@ function progressBar() {
 
 var results;
 function getWeights() {
+    document.getElementById("resultsTable").style.visibility = "hidden";
     progressBar();
     var weights = {};
     var inputs = document.getElementsByTagName('input');
@@ -167,7 +167,6 @@ function getWeights() {
     xhr.onload = function() {
         if (xhr.status == 200) {
             results = JSON.parse(xhr.responseText);
-            console.log('about to call writeResultsTable...');
             writeResultsTable();
         };
     };
@@ -177,8 +176,6 @@ function getWeights() {
 
 // Add step to filter by geographic region?
 function writeResultsTable() {
-    console.log('in writeResultsTable...');
-    var elemID = "resultsTableBody";
     var output = '';
     for (var city in results) {
         output += '<tr>';
@@ -187,7 +184,7 @@ function writeResultsTable() {
         output += '<td>' + results[city]['cost'] + '</td>';
         output += '</tr>';
     };        
-    document.getElementById(elemID).innerHTML = output;
+    document.getElementById("resultsTableBody").innerHTML = output;
 };
 
 // Source: https://www.w3schools.com/howto/howto_js_sort_table.asp  

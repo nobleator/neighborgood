@@ -7,7 +7,7 @@ b {
     font-family: 'Montserrat', sans-serif;
 }
 div {
-    max-width: 40em;
+    max-width: 35em;
     margin: 0 auto;
     padding: 2% 0;
     position: relative;
@@ -15,6 +15,9 @@ div {
 ul {
     margin: 0 auto;
     list-style-type: none;
+}
+span {
+    display: block;
 }
 
 .ck-button {
@@ -51,6 +54,9 @@ input[type='checkbox']:checked + .ck-button{
 button {
     float: right;
     margin-right: 5em;
+    font-size: 110%;
+    cursor: pointer;
+    z-index: 100;
 }
 #weights {
     display: table;
@@ -75,6 +81,7 @@ button {
     height: 15px;
     padding: 0;
     background-color: #525E76;
+    margin: 1em 0;
 }
 #progBarInner {
     width: 0%;
@@ -86,13 +93,16 @@ button {
 #resultsTable {
     margin: 0 auto;
     visibility: hidden;
+    border-collapse: collapse;
 }
-#resultsTable > th, #resultsTable > td {
-    padding: 0.1em 1em;
+#resultsTable > thead {
+    border-bottom: 2px solid #525E76;
 }
-#resultsTable > th {
+#resultsTable th {
     text-align: center;
+    font-weight: bold;
 }
-#resultsTable > td {
+#resultsTable td {
     text-align: left;
+    padding: 0 1.25em;
 }

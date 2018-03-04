@@ -44,7 +44,6 @@ app.get('/', (req, res) => {
 })
 
 var options = {}
-//var asc_preferred = {}
 app.get('/query', (req, res) => {
     pool.connect((err, client, done) => {
         if (err) {
@@ -93,7 +92,6 @@ function linearize(x, maxX, minX, asc) {
 
 app.post('/submit', (req, res) => {
     // TODO: Save preference selections
-    // TODO: Condense/clean up this section
     var selectedCriteria = []
     var userInput = req.body
     
@@ -225,9 +223,8 @@ app.post('/submit', (req, res) => {
                                           options[criteria]['asc_preferred'])
                     results[city]['utility'] += score * weights[criteria]
                 }
-                // Edit output formatting
                 results[city]['utility'] = Math.round(results[city]['utility'] * 100) / 100
-                //results[city]['cost'] = results[city]['cost'].toLocaleString('en-US', {style: 'currency', currency: 'USD'})
+                results[city]['cost'] = Number(results[city]['cost']).toLocaleString('en-US', {style: 'currency', currency: 'USD'})
             }
 
             function getTopTen() {
