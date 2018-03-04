@@ -136,8 +136,24 @@ function verifySelection(elem) {
     };
 };
 
+function progressBar() {
+    var elem = document.getElementById("progBarInner"); 
+    var width = 1;
+    var id = setInterval(frame, 25);
+    function frame() {
+        if (width >= 100) {
+            document.getElementById("resultsTable").style.visibility = "visible";
+            clearInterval(id);
+        } else {
+            width++; 
+            elem.style.width = width + '%'; 
+        }
+    }
+};
+
 var results;
 function getWeights() {
+    progressBar();
     var weights = {};
     var inputs = document.getElementsByTagName('input');
     for (var i = 0; i < inputs.length; i++) {
@@ -147,12 +163,12 @@ function getWeights() {
     };
     xhr = new XMLHttpRequest();
     xhr.open('POST', 'submit', true);
-    //xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.setRequestHeader('Content-type', 'application/json');
     xhr.onload = function() {
         if (xhr.status == 200) {
             results = JSON.parse(xhr.responseText);
-            writeResultsTable("resultsTableBody");
+            console.log('about to call writeResultsTable...');
+            writeResultsTable();
         };
     };
     var respObj = {"options": options, "weights": weights};
@@ -160,10 +176,9 @@ function getWeights() {
 };
 
 // Add step to filter by geographic region?
-// Send request to server with criteria selections and weights
-// On server side, process weights to determine utility for all options
-// Sort by highest utility (or utility/cost?) and return top 10 options
-function writeResultsTable(elemID) {
+function writeResultsTable() {
+    console.log('in writeResultsTable...');
+    var elemID = "resultsTableBody";
     var output = '';
     for (var city in results) {
         output += '<tr>';
