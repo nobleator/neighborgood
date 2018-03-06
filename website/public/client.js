@@ -138,7 +138,7 @@ function verifySelection(elem) {
 function progressBar() {
     var elem = document.getElementById("progBarInner"); 
     var width = 0;
-    var id = setInterval(frame, 20);
+    var id = setInterval(frame, 15);
     function frame() {
         if (width >= 100) {
             document.getElementById("resultsTable").style.visibility = "visible";
@@ -185,6 +185,8 @@ function writeResultsTable() {
         output += '</tr>';
     };        
     document.getElementById("resultsTableBody").innerHTML = output;
+    sortTable(1);
+    sortTable(1);
 };
 
 // Source: https://www.w3schools.com/howto/howto_js_sort_table.asp  
