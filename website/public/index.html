@@ -6,7 +6,7 @@
     <meta name=viewport content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="client.min.js"></script>
     <link rel='stylesheet' href='style.css'>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:500|Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
 
 <body>
@@ -32,22 +32,26 @@
         <div id='logo'><img src='logo.png'></div>
     </nav>
     <div id='intro'>
-        <span><b>Welcome to NeighborGood.</b> Want to move, but don't know where? Don't worry, all your indecision will come to an end as we apply analytical rigor to your neighborhood selection process.</span>
+        <div class='header'>Welcome to NeighborGood</div>
+        <span>Want to move, but don't know where? Don't worry, all your indecision will come to an end as we apply analytical rigor to your neighborhood selection process.</span>
     </div>
     <div id='criteria'>
-        <span><b>Criteria.</b> Please select the attributes you are interested in.</span>
+        <div class='header'>Criteria</div>
+        <span>Please select the attributes you are interested in.</span>
         <div id='criteria-list'></div>
         <button id="submitChecked">Continue</button>
     </div>
     
     <div>
-        <span><b>Weights.</b> Drag the slider towards the criteria that you care more about (the more you prefer than criteria, the farther you drag it).</span>
+        <div class='header'>Weights</div>
+        <span>Drag the slider towards the criteria that you care more about (the more you prefer than criteria, the farther you drag it).</span>
         <div id='weights'></div>
         <button id="submitWeights">Finish</button>
     </div>
     
     <div id='results'>
-        <span><b>Results.</b> Based on your input above, here are your results.</span>
+        <div class='header'>Results</div>
+        <span>Based on your input above, here are your results.</span>
         <span>Click on the table header to sort.</span>
         <div id='progBarOuter'><div id='progBarInner'></div></div>
         <table id='resultsTable'>
